@@ -8198,11 +8198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\54345\\RiderProjects\\ProyectoTurnos\\ProyectoTurnos\\ProyectoTurnos.csproj",
+      "projectUniqueName": "C:\\Users\\54345\\OneDrive\\Escritorio\\ProyectoTurnos\\Proyecto-.NET\\ProyectoTurnos\\ProyectoTurnos.csproj",
       "projectName": "ProyectoTurnos",
-      "projectPath": "C:\\Users\\54345\\RiderProjects\\ProyectoTurnos\\ProyectoTurnos\\ProyectoTurnos.csproj",
+      "projectPath": "C:\\Users\\54345\\OneDrive\\Escritorio\\ProyectoTurnos\\Proyecto-.NET\\ProyectoTurnos\\ProyectoTurnos.csproj",
       "packagesPath": "C:\\Users\\54345\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\54345\\RiderProjects\\ProyectoTurnos\\ProyectoTurnos\\obj\\",
+      "outputPath": "C:\\Users\\54345\\OneDrive\\Escritorio\\ProyectoTurnos\\Proyecto-.NET\\ProyectoTurnos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\54345\\AppData\\Roaming\\NuGet\\NuGet.Config"

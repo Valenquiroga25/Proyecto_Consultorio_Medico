@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ebiBU/juuQ1tiKshMx3CRkCMASZRQLzipocTHaDz9nEl+sHAfFBatOBjAsvG1C1wRu9tSsOqZl7PA15UCMpxCw==",
+  "dgSpecHash": "VB0qWNLY1cpr35yADdhbEnakfAmdTT6I7ok+iJ6ShH9sIlG+HZ/sINo6pIogNB8Dn57sOBFvTgcZ/fxUDzU3SQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\54345\\RiderProjects\\ProyectoTurnos\\ProyectoTurnos\\ProyectoTurnos.csproj",
+  "projectFilePath": "C:\\Users\\54345\\OneDrive\\Escritorio\\ProyectoTurnos\\Proyecto-.NET\\ProyectoTurnos\\ProyectoTurnos.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\54345\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\54345\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
