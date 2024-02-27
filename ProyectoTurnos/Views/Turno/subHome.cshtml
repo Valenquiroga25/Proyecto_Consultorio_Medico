@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "SubHome Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Apartado de turnos</h1>
+    
+    <div style="margin-top: 20px; display: flex; justify-content: center; align-items: center">
+        <a asp-action="Create" class="button btn btn-outline-primary" style="margin: 20px">Registrar turno</a>
+        <form asp-action="FindByDNI" asp-controller="Turno" method="get" class="form-inline" style="margin: 10px">
+            <div class="input-group">
+                <input type="number" name="BusquedaTurno" class="form-control" placeholder="Buscar paciente..." aria-label="Buscar paciente..." aria-describedby="button-buscar" />
+                <button class="btn btn-primary" type="submit" id="button-buscar">Buscar</button>
+            </div>
+        </form>
+    </div>
+    <a class="button btn btn-outline-dark" asp-action="Home" asp-controller="Home" style="margin-top: 150px;margin-right: 300px">Volver a Home</a>
+</div>

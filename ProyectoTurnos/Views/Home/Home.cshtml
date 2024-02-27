@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido a la página de turnos!</h1>
+    
+    <div style="margin-top: 2%; display: flex; justify-content: center;">
+        <div style="display: grid;">
+            <img src="~/paciente.jpg" style="width: 400px;height: 224px; border-radius: 5%; border: 1px solid #0d6efd">
+            <a asp-action="Index" asp-controller="Paciente" class="button btn btn-outline-primary" style="margin-top: 20px">Pacientes</a>
+        </div>
+        <div style="display: grid; margin-right: 20px;margin-left: 20px">
+            <img src="~/consulta.jpg" style="width: 400px;height: 224px; border-radius: 5%; border: 1px solid #0d6efd">
+            <a asp-action="Index" asp-controller="Consulta" class="button btn btn-outline-primary" style="margin-top: 20px">Consultas</a>
+        </div>
+        <div style="display: grid">
+            <img src="~/turno.jpg" style="width: 400px;height: 224px; border-radius: 5%; border: 1px solid #0d6efd">
+            <a asp-action="subHome" asp-controller="Turno" class="button btn btn-outline-primary" style="margin-top: 20px">Turnos</a>
+        </div>
+    </div>
+
+</div>

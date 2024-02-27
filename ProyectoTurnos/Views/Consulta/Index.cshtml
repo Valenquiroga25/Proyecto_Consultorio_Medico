@@ -1,0 +1,43 @@
+@model IEnumerable<ProyectoTurnos.Models.Consulta>
+
+@{
+    ViewData["Title"] = "Index";
+    var consultasOrdenadas = Model.OrderBy(p => p.descripcion);
+}
+
+<h1>Lista de consultas</h1>
+
+<div style="display: flex; justify-content: start; align-items: center">
+    <a asp-action="Create" class="button btn btn-outline-primary" style="margin: 10px">Registrar consulta</a>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in consultasOrdenadas) {
+        <tr>    
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                <a asp-action="Edit" style="margin-left: 10px" class="btn btn-outline-primary btn-sm" asp-route-id="@item.IdConsulta"><i class="bi bi-pencil-square"></i> Editar</a>   
+                <a asp-action="Delete" style="margin-left: 10px" class="btn btn-outline-danger btn-sm" asp-route-id="@item.IdConsulta"><i class="bi bi-person-dash"></i> Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a class="button btn btn-outline-dark" asp-action="Home" asp-controller="Home" style="margin-top: 150px">Volver</a>

@@ -1,0 +1,60 @@
+@model IEnumerable<ProyectoTurnos.Models.Paciente>
+
+@{
+    ViewData["Title"] = "FindByDNI";
+}
+
+<h1>Lista de pacientes</h1>
+
+<p>
+    <a asp-action="Index" class="button btn btn-outline-primary" style="margin-top: 10px">Volver a la lista</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombreCompleto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.documento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.obraSocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fechaNacimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.telefono)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.obraSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                <a asp-action="Edit" style="margin-left: 10px" class="btn btn-outline-primary btn-sm" asp-route-id="@item.idPaciente"><i class="bi bi-pencil-square"></i> Editar</a>
+                <a asp-action="Details" style="margin-left: 10px" class="btn btn-outline-success btn-sm" asp-route-id="@item.idPaciente"><i class="bi bi-eye"></i> Detalles</a>
+                <a asp-action="Delete" style="margin-left: 10px" class="btn btn-outline-danger btn-sm" asp-route-id="@item.idPaciente"><i class="bi bi-person-dash"></i> Eliminar</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

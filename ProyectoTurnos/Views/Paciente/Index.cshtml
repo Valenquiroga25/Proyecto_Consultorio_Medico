@@ -1,0 +1,68 @@
+@model IEnumerable<ProyectoTurnos.Models.Paciente>
+
+@{
+    ViewData["Title"] = "Index";
+    var pacientesOrdenados = Model.OrderBy(p => p.nombreCompleto);
+}
+
+<h1>Lista de pacientes</h1>
+
+<div style="display: flex; justify-content: start; align-items: center">
+    <a asp-action="Create" class="button btn btn-outline-primary" style="margin: 10px">Registrar paciente</a>
+    <form asp-action="FindByDNI" method="get" class="form-inline" style="margin: 10px">
+        <div class="input-group">
+            <input type="number" name="Busqueda" class="form-control" placeholder="Buscar paciente..." aria-label="Buscar paciente..." aria-describedby="button-buscar" />
+            <button class="btn btn-primary" type="submit" id="button-buscar">Buscar</button>
+        </div>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreCompleto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.documento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.obraSocial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaNacimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telefono)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in pacientesOrdenados) {
+        <tr>    
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.obraSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaNacimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                <a asp-action="Edit" style="margin-left: 10px" class="btn btn-outline-primary btn-sm" asp-route-id="@item.idPaciente"><i class="bi bi-pencil-square"></i> Editar</a>   
+                <a asp-action="Details" style="margin-left: 10px" class="btn btn-outline-success btn-sm" asp-route-id="@item.idPaciente"><i class="bi bi-eye"></i>  Detalles</a> 
+                <a asp-action="Delete" style="margin-left: 10px" class="btn btn-outline-danger btn-sm" asp-route-id="@item.idPaciente"><i class="bi bi-person-dash"></i> Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a class="button btn btn-outline-dark" asp-action="Home" asp-controller="Home" style="margin-top: 150px">Volver</a>

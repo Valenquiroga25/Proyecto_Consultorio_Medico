@@ -1,0 +1,54 @@
+@model ProyectoTurnos.Models.Paciente
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h3 style="font-family: Roboto">Detalles del paciente</h3>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.nombreCompleto)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.nombreCompleto)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.documento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.documento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.obraSocial)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.obraSocial)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.fechaNacimiento)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.fechaNacimiento)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <dd class="col-sm-10">
+        <a asp-action="Index" asp-controller="Turno" asp-route-id="@Model?.idPaciente" asp-route-BusquedaTurno="@Model?.idPaciente" class="button btn btn-outline-dark">Historial</a>
+    </dd>
+</div>
+<div>
+    <br/>
+    <a asp-action="Edit" asp-route-id="@Model?.idPaciente" class="btn btn-outline-primary">Editar</a> 
+    <a asp-action="Index" class="btn btn-outline-primary">Volver a la lista</a>
+</div>

@@ -1,0 +1,49 @@
+@model ProyectoTurnos.Models.Paciente
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h3>Editar datos</h3>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="idPaciente" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="margin-top: 10px; margin-bottom: 7px;">
+                <label asp-for="nombreCompleto" class="control-label"></label>
+                <input asp-for="nombreCompleto" class="form-control" />
+                <span asp-validation-for="nombreCompleto" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top: 10px; margin-bottom: 7px;">
+                <label asp-for="documento" class="control-label"></label>
+                <input asp-for="documento" class="form-control" />
+                <span asp-validation-for="documento" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top: 10px; margin-bottom: 7px;">
+                <label asp-for="obraSocial" class="control-label"></label>
+                <input asp-for="obraSocial" class="form-control" />
+                <span asp-validation-for="obraSocial" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top: 10px; margin-bottom: 7px;">
+                <label asp-for="fechaNacimiento" class="control-label"></label>
+                <input asp-for="fechaNacimiento" class="form-control" />
+                <span asp-validation-for="fechaNacimiento" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="margin-top: 10px; margin-bottom: 7px;">
+                <label asp-for="telefono" class="control-label"></label>
+                <input asp-for="telefono" class="form-control" />
+                <span asp-validation-for="telefono" class="text-danger"></span>
+            </div>
+            
+            <div style="margin-top: 15px">
+                <input type="submit" value="Editar" class="btn btn-outline-primary"/>
+                <a asp-action="Index" class="button btn btn-outline-primary">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
