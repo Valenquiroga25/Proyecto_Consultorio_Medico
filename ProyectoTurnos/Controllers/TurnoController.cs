@@ -55,15 +55,19 @@ namespace ProyectoTurnos
         // POST: Turno/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdTurno,fecha,descripcion,idPaciente,idConsulta")] Turno turno)
+        public async Task<IActionResult> Create([Bind("IdTurno,fecha,hora,descripcion,idPaciente,idConsulta")] Turno turno)
         {
             _context.Add(turno);
+
+            var turnos = await _context.Turno.Where(t => t.fecha == turno.fecha).ToListAsync();
+
+            if (!turnoValido(turnos, turno)){throw new Exception("Ya hay un turno en esa fecha ese dia.");}
+            if (!PacienteExists(turno.idPaciente)){throw new Exception("El paciente no se encuentra registrado en la base de datos.");};
+            if (!ConsultaExists(turno.idConsulta)){throw new Exception("La consulta no se encuentra registrado en la base de datos.");};
 
             // Buscar el usuario en UsuarioContext
             var paciente = await _contextPaciente.Paciente.FindAsync(turno.idPaciente);
             var consulta = await _contextConsulta.Consulta.FindAsync(turno.idConsulta);
-
-            if (paciente == null || consulta == null) return NotFound();
 
             // Asignar el usuario al turno
             turno.paciente = paciente;
@@ -76,10 +80,7 @@ namespace ProyectoTurnos
         // GET: Turno/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (!TurnoExists(id))
-            {
-                return NotFound();
-            }
+            if (!TurnoExists(id)){return NotFound();}
 
             var turno = await _context.Turno.FindAsync(id);
 
@@ -89,36 +90,26 @@ namespace ProyectoTurnos
         // POST: Usuario/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdTurno,fecha,idPaciente,idConsulta,paciente,consulta,descripcion")] Turno turno)
+        public async Task<IActionResult> Edit(int id, [Bind("IdTurno,fecha,hora,idPaciente,idConsulta,paciente,consulta,descripcion")] Turno turno)
         {
-            if (id != turno.IdTurno){return NotFound();}
             
-            if (!TurnoExists(turno.IdTurno)){return NotFound();}
+            if (!TurnoExists(turno.IdTurno)){throw new Exception("El turno no se encuentra registrado en la base de datos.");}
+            if (!PacienteExists(turno.idPaciente)){throw new Exception("El paciente no se encuentra registrado en la base de datos.");};
+            if (!ConsultaExists(turno.idConsulta)){throw new Exception("La consulta no se encuentra registrado en la base de datos.");};
 
-            try
-            {
-                // Cargar las entidades Paciente y Consulta desde la base de datos
-                var paciente = await _context.Paciente.FindAsync(turno.idPaciente);
-                var consulta = await _context.Consulta.FindAsync(turno.idConsulta);
-                var idPaciente = turno.idPaciente;
+            // Cargar las entidades Paciente y Consulta desde la base de datos
+            var paciente = await _context.Paciente.FindAsync(turno.idPaciente);
+            var consulta = await _context.Consulta.FindAsync(turno.idConsulta);
+            
+            var idPaciente = turno.idPaciente; // Esta variable se crea para indicar el id al 'RedirectToAction'.
 
-                // Asignar las entidades cargadas al turno
-                turno.paciente = paciente;
-                turno.consulta = consulta;
+            // Asignar las entidades cargadas al turno
+            turno.paciente = paciente;
+            turno.consulta = consulta;
 
-                _context.Update(turno);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index2), new {id=idPaciente});
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TurnoExists(turno.IdTurno))
-                {
-                    return NotFound();
-                }
-                
-                throw;
-            }
+            _context.Update(turno);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index2), new {id=idPaciente});
         }
 
         // GET: Usuario/Delete/5
@@ -160,20 +151,43 @@ namespace ProyectoTurnos
             ViewData["BusquedaTurno"] = BusquedaTurno;
             if (BusquedaTurno.HasValue && BusquedaTurno.ToString().Length == 8)
             {
+                var dni = Convert.ToInt32(BusquedaTurno);
                 var turnos = await _context.Turno
                     .Include(t => t.paciente)
-                    .Include(t => t.consulta).
-                    Where(u => Convert.ToInt32(u.paciente.documento) == BusquedaTurno).ToListAsync();
+                    .Include(t => t.consulta)
+                    .Where(u => u.paciente.documento == dni)
+                    .ToListAsync();
 
                 return View(turnos);
             }
-    
+
             return RedirectToAction(nameof(subHome));
         }
 
         private bool TurnoExists(int? id)
         {
             return _context.Turno.Any(e => e.IdTurno == id);
+        }
+        
+        private bool PacienteExists(int? id)
+        {
+            return _context.Paciente.Any(e => e.idPaciente == id);
+        }
+        
+        private bool ConsultaExists(int? id)
+        {
+            return _context.Consulta.Any(e => e.IdConsulta == id);
+        }
+
+        private bool turnoValido(List<Turno> turnos, Turno turnoAdar)
+        {
+            foreach (Turno t in turnos)
+            {
+                if (t.fecha == turnoAdar.fecha && t.hora == turnoAdar.hora)
+                    return false;
+            }
+
+            return true;
         }
     }
 }

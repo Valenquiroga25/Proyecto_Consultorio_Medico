@@ -15,7 +15,7 @@ public class Consulta
     
     [Required (ErrorMessage = "El campo Precio es obligatorio!")] 
     [Display(Name = "Precio")]
-    public double precio { get; set; }
+    public double? precio { get; set; }
     
     public Consulta()
     {

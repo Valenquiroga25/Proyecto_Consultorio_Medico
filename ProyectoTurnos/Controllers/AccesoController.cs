@@ -23,20 +23,15 @@ namespace ProyectoTurnos.Controllers
         public async Task<IActionResult> Ingresar(Acceso usuario)
         {
 
-            var usuarioValido = validarUsuario(usuario.nombreUsuario, usuario.contraseña);
-
-            if (usuarioValido)
+            if (usuarioValido(usuario.nombreUsuario,usuario.contraseña))
                 return RedirectToAction("Home", "Home");
             
-            return RedirectToAction("Login", "Login");
+            return RedirectToAction("Ingresar", "Acceso");
         }
 
-        public bool validarUsuario(String? nombreUsuario, String? contraseña)
+        public bool usuarioValido(String? nombreUsuario, String? contraseña)
         {
-            var acceso = _context.Acceso
-                .Where(item => item.nombreUsuario == nombreUsuario && item.contraseña == contraseña).FirstOrDefault();
-
-            return (acceso != null);
+            return _context.Acceso.Any(e => e.nombreUsuario == nombreUsuario && e.contraseña == contraseña);
         }
     }
 }

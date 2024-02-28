@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGeneration;
 using ProyectoTurnos.Data;
 using ProyectoTurnos.Models;
 
@@ -51,6 +52,8 @@ namespace ProyectoTurnos.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (DocumentoExist(paciente.documento)){throw new Exception("Ya existe un paciente con este documento en la base de datos.");}
+                
                 _context.Add(paciente);
                 await _context.SaveChangesAsync(); // EL 'await' indica que se espere a que se termine el proceso para continuar la ejecución.
                 return RedirectToAction(nameof(Index)); // Si el guardado del obj en la BD es exitoso redirecciona a la lista. 
@@ -79,31 +82,17 @@ namespace ProyectoTurnos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("idPaciente,nombreCompleto,obraSocial,documento,telefono,fechaNacimiento")] Paciente paciente)
         {
-            if (id != paciente.idPaciente)
-            {
-                return NotFound();
-            }
+            if (!PacienteExists(paciente.idPaciente)){return NotFound();}
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(paciente);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!UsuarioExists(paciente.idPaciente))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                if (DocumentoExist(paciente.documento)){throw new Exception("Ya existe un paciente con este documento en la base de datos.");}
+                
+                _context.Update(paciente);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            
             return View(paciente);
         }
 
@@ -153,9 +142,14 @@ namespace ProyectoTurnos.Controllers
             return RedirectToAction(nameof(Index));
         }
         
-        private bool UsuarioExists(int id)
+        private bool PacienteExists(int id)
         {
             return _context.Paciente.Any(e => e.idPaciente == id);
+        }
+        
+        private bool DocumentoExist(int? documento)
+        {
+            return _context.Paciente.Any(e => e.documento == documento);
         }
     }
 }

@@ -34,6 +34,8 @@ namespace ProyectoTurnos
         {
             if (ModelState.IsValid)
             {
+                if (ConsultaExists(consulta.descripcion)){throw new Exception("Ya existe esta consulta en la base de datos.");}
+
                 _context.Add(consulta);
                 await _context.SaveChangesAsync(); // EL 'await' indica que se espere a que se termine el proceso para continuar la ejecución.
                 return RedirectToAction(nameof(Index)); // Si el guardado del obj en la BD es exitoso redirecciona a la lista. 
@@ -62,29 +64,14 @@ namespace ProyectoTurnos
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdConsulta,descripcion,precio")] Consulta consulta)
         {
-            if (id != consulta.IdConsulta)
-            {
-                return NotFound();
-            }
+            if (id != consulta.IdConsulta){return NotFound();}
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(consulta);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ConsultaExists(consulta.IdConsulta))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                if (ConsultaExists(consulta.descripcion)){throw new Exception("Ya existe esta consulta en la base de datos.");}
+                
+                _context.Update(consulta);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(consulta);
@@ -123,9 +110,9 @@ namespace ProyectoTurnos
             return RedirectToAction(nameof(Index));
         }
         
-        private bool ConsultaExists(int id)
+        private bool ConsultaExists(String descripcion)
         {
-            return _context.Consulta.Any(e => e.IdConsulta == id);
+            return _context.Consulta.Any(e => e.descripcion == descripcion);
         }
     }
 }

@@ -15,7 +15,7 @@ public class Paciente
     
     [Required(ErrorMessage = "El campo Documento es obligatorio!")]
     [Display(Name = "Documento")]
-    public int documento { get; set; }
+    public int? documento { get; set; }
 
     [Required (ErrorMessage = "El campo Obra social es obligatorio!")]  
     [Display(Name = "Obra social")]
@@ -24,7 +24,7 @@ public class Paciente
     [Required (ErrorMessage = "El campo Fecha es obligatorio!")]  
     [Display(Name = "Fecha de nacimiento")]
     [DataType(DataType.Date)]
-    public DateTime fechaNacimiento { get; set; }
+    public DateTime? fechaNacimiento { get; set; }
     
     [Required (ErrorMessage = "El campo Teléfono es obligatorio!")]  
     [Display(Name = "Teléfono")]

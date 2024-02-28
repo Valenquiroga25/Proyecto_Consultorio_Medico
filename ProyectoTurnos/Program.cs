@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProyectoTurnos.Data;
 
-var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args); // Se crea la aplicacion y se le agrega los contextos, es decir las conexiones a las tablas.
 builder.Services.AddDbContext<PacienteContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default") ?? throw new InvalidOperationException("Connection string 'Default' not found.")));
 
@@ -36,6 +36,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Login}/{action=Login}/{id?}");
+    pattern: "{controller=Acceso}/{action=Ingresar}/{id?}");
 
 app.Run();

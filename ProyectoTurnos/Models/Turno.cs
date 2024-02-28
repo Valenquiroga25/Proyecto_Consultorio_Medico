@@ -12,7 +12,12 @@ public class Turno
     [Required (ErrorMessage = "El campo Fecha es obligatorio!")]  
     [Display(Name = "Fecha")]
     [DataType(DataType.Date)]
-    public DateTime fecha { get; set; }
+    public DateTime? fecha { get; set; }
+    
+    [Required (ErrorMessage = "El campo Hora es obligatorio!")]  
+    [Display(Name = "Hora")]
+    [DataType(DataType.Time)]
+    public TimeSpan? hora { get; set; }
     
     [Required (ErrorMessage = "El campo Descripción es obligatorio!")] 
     [Display(Name = "Descripción")]
@@ -21,12 +26,12 @@ public class Turno
     [ForeignKey("idPaciente")]
     [Required (ErrorMessage = "El campo paciente es obligatorio!")] 
     [Display(Name = "Id del paciente")]
-    public int idPaciente { get; set; } // Identificador del usuario asociado
+    public int? idPaciente { get; set; } // Identificador del usuario asociado
 
     [ForeignKey("idConsulta")]
     [Required (ErrorMessage = "El campo consulta es obligatorio!")] 
     [Display(Name = "Id de la consulta")]
-    public int idConsulta { get; set; } // Identificador del usuario asociado
+    public int? idConsulta { get; set; } // Identificador del usuario asociado
     
     [Display(Name = "Paciente")]
     public Paciente paciente { get; set; }
