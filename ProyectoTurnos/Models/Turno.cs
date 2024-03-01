@@ -12,7 +12,7 @@ public class Turno
     [Required (ErrorMessage = "El campo Fecha es obligatorio!")]  
     [Display(Name = "Fecha")]
     [DataType(DataType.Date)]
-    public DateTime? fecha { get; set; }
+    public DateTime fecha { get; set; }
     
     [Required (ErrorMessage = "El campo Hora es obligatorio!")]  
     [Display(Name = "Hora")]
@@ -38,7 +38,7 @@ public class Turno
     
     [Display(Name = "Consulta")]
     public Consulta consulta { get; set; }
-
+     
     public Turno()
     {
         

@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="Views\Login\Login.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Agenda\Agenda.cshtml" />
     </ItemGroup>
     
 </Project>

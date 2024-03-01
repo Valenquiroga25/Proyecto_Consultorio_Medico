@@ -98,12 +98,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Delete2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cRGVsZXRlMi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Edit2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cRWRpdDIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/FindByDNI.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cRmluZEJ5RE5JLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/FindByFecha.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cRmluZEJ5RmVjaGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Index.cshtml]
@@ -112,6 +124,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Index2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cSW5kZXgyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Index3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cSW5kZXgzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/subHome.cshtml]

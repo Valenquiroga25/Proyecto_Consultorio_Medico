@@ -32,15 +32,11 @@ namespace ProyectoTurnos
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdConsulta,descripcion,precio")] Consulta consulta)
         {
-            if (ModelState.IsValid)
-            {
-                if (ConsultaExists(consulta.descripcion)){throw new Exception("Ya existe esta consulta en la base de datos.");}
+            if (ConsultaExists(consulta.descripcion)){throw new Exception("Ya existe esta consulta en la base de datos.");}
 
-                _context.Add(consulta);
-                await _context.SaveChangesAsync(); // EL 'await' indica que se espere a que se termine el proceso para continuar la ejecución.
-                return RedirectToAction(nameof(Index)); // Si el guardado del obj en la BD es exitoso redirecciona a la lista. 
-            }
-            return View(consulta);
+            _context.Add(consulta);
+            await _context.SaveChangesAsync(); // EL 'await' indica que se espere a que se termine el proceso para continuar la ejecución.
+            return RedirectToAction(nameof(Index)); // Si el guardado del obj en la BD es exitoso redirecciona a la lista. 
         }
 
         // GET: Consulta/Edit/5

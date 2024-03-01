@@ -1,0 +1,51 @@
+@model ProyectoTurnos.Models.Turno
+       
+@{
+   ViewData["Title"] = "Delete2";
+}
+
+<h1 style="font-family: Roboto">Eliminar</h1>
+
+<h4 style="font-family: Roboto">Desea eliminar el turno : @Html.DisplayTextFor(m => m.IdTurno)?</h4>
+<div>
+   <hr />
+   <dl class="row">
+       <dt class = "col-sm-2">
+           @Html.DisplayNameFor(model => model.paciente)
+       </dt>
+       <dd class = "col-sm-10">
+           @Html.DisplayFor(model => model.paciente.documento)
+       </dd>
+       <dt class = "col-sm-2">
+           @Html.DisplayNameFor(model => model.consulta)
+       </dt>
+       <dd class = "col-sm-10">
+           @Html.DisplayFor(model => model.consulta.descripcion)
+       </dd>
+       <dt class = "col-sm-2">
+           @Html.DisplayNameFor(model => model.fecha)
+       </dt>
+       <dd class = "col-sm-10">
+           @Html.DisplayFor(model => model.fecha)
+       </dd>
+       <dt class = "col-sm-2">
+           @Html.DisplayNameFor(model => model.hora)
+       </dt>
+       <dd class = "col-sm-10">
+           @Html.DisplayFor(model => model.hora)
+       </dd>
+       <dt class = "col-sm-2">
+           @Html.DisplayNameFor(model => model.descripcion)
+       </dt>
+       <dd class = "col-sm-10">
+           @Html.DisplayFor(model => model.descripcion)
+       </dd>
+   </dl>
+    
+   <form asp-action="Delete2" style="margin-top: 35px">
+       <input type="hidden" asp-for="IdTurno" />
+       <input type="submit" value="Eliminar"  class="btn btn-outline-danger" /> 
+       <a class="button btn btn-outline-primary" onclick="history.go(-1)">Volver a la lista</a>
+   </form>
+</div>
+

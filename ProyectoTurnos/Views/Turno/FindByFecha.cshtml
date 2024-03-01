@@ -1,0 +1,58 @@
+@model IEnumerable<ProyectoTurnos.Models.Turno>
+
+@{
+    ViewBag.Title = "FindByFecha";
+    var turnosOrdenados = Model.OrderBy(p => p.fecha).ThenBy(p => p.hora);
+}
+
+<h3>Turnos del día: @Model.FirstOrDefault()?.fecha.ToString("dd/MM/yyyy")</h3>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.paciente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.consulta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hora)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in turnosOrdenados) {
+        <tr>    
+            <td>
+                @Html.DisplayFor(modelItem => item.paciente.nombreCompleto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.consulta.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                <a asp-action="Edit2" style="margin-left: 10px" class="btn btn-outline-primary btn-sm" asp-route-id="@item.IdTurno"><i class="bi bi-pencil-square"></i> Editar</a>   
+                <a asp-action="Delete2" style="margin-left: 10px" class="btn btn-outline-danger btn-sm" asp-route-id="@item.IdTurno"><i class="bi bi-person-dash"></i> Eliminar</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+<a class="button btn btn-outline-dark" asp-action="subHome" asp-controller="Turno" style="margin-top: 150px">Volver</a>

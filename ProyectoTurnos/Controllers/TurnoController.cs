@@ -20,8 +20,12 @@ namespace ProyectoTurnos
         
         public async Task<IActionResult> subHome()
         {
-            return View();
-        }
+            var turnos = await _context.Turno
+                .Include(t => t.paciente)
+                .Include(t => t.consulta) 
+                .ToListAsync();
+            
+            return View(turnos);        }
         
         // GET: Index busca turnos de paciente por id.
         public async Task<IActionResult> Index(int? BusquedaTurno)
@@ -41,6 +45,17 @@ namespace ProyectoTurnos
                 .Include(t => t.paciente)
                 .Include(t => t.consulta) 
                 .Where(u => u.idPaciente == id)
+                .ToListAsync();
+            
+            return View(turnos);
+        }
+        
+        public async Task<IActionResult> Index3(DateTime fecha)
+        {
+            var turnos = await _context.Turno
+                .Include(t => t.paciente)
+                .Include(t => t.consulta) 
+                .Where(u => u.fecha == fecha)
                 .ToListAsync();
             
             return View(turnos);
@@ -112,6 +127,40 @@ namespace ProyectoTurnos
             return RedirectToAction(nameof(Index2), new {id=idPaciente});
         }
 
+        // GET: Turno/Edit/5
+        public async Task<IActionResult> Edit2(int? id)
+        {
+            if (!TurnoExists(id)){return NotFound();}
+
+            var turno = await _context.Turno.FindAsync(id);
+
+            return View(turno);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit2(int id, [Bind("IdTurno,fecha,hora,idPaciente,idConsulta,paciente,consulta,descripcion")] Turno turno)
+        {
+            
+            if (!TurnoExists(turno.IdTurno)){throw new Exception("El turno no se encuentra registrado en la base de datos.");}
+            if (!PacienteExists(turno.idPaciente)){throw new Exception("El paciente no se encuentra registrado en la base de datos.");};
+            if (!ConsultaExists(turno.idConsulta)){throw new Exception("La consulta no se encuentra registrado en la base de datos.");};
+
+            // Cargar las entidades Paciente y Consulta desde la base de datos
+            var paciente = await _context.Paciente.FindAsync(turno.idPaciente);
+            var consulta = await _context.Consulta.FindAsync(turno.idConsulta);
+            
+            // Asignar las entidades cargadas al turno
+            turno.paciente = paciente;
+            turno.consulta = consulta;
+
+            var fecha = turno.fecha;
+            
+            _context.Update(turno);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index3), new {fecha});
+        }
+        
         // GET: Usuario/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -145,6 +194,38 @@ namespace ProyectoTurnos
             return RedirectToAction(nameof(Index2), new { id = idPaciente });
         }
         
+        public async Task<IActionResult> Delete2(int? id)
+        {
+            if (id == null){return NotFound();}
+            
+            var turno = await _context.Turno
+                .Include(t => t.paciente)
+                .Include(t => t.consulta)
+                .FirstOrDefaultAsync(m => m.IdTurno == id);
+            
+            if (!TurnoExists(id)) {return NotFound();}
+
+            return View(turno);
+        }
+        
+        // Este delete es para el metodo FindByFecha, para que al eliminar un turno nos redirija al listado de esa fecha.
+        [HttpPost, ActionName("Delete2")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed2(int? id)
+        {
+            var turno = await _context.Turno.Include(t => t.paciente)
+                .FirstOrDefaultAsync(m => m.IdTurno == id);
+            
+            if (!TurnoExists(id)) {return NotFound();}
+
+            var fecha = turno.fecha;
+            
+            _context.Turno.Remove(turno);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index3), new {fecha});
+        }
+        
         // FindByDNI busca turnos de paciente por DNI.
         public async Task<IActionResult> FindByDNI(int? BusquedaTurno)
         {
@@ -163,6 +244,26 @@ namespace ProyectoTurnos
 
             return RedirectToAction(nameof(subHome));
         }
+        
+        // FindByDNI busca turnos de paciente por fecha.
+        public async Task<IActionResult> FindByFecha(DateTime? BusquedaTurnoFecha)
+        {
+            ViewData["BusquedaTurno"] = BusquedaTurnoFecha;
+            if (BusquedaTurnoFecha.HasValue)
+            {
+                var fecha = Convert.ToDateTime(BusquedaTurnoFecha);
+                var turnos = await _context.Turno
+                    .Include(t => t.paciente)
+                    .Include(t => t.consulta)
+                    .Where(u => u.fecha == fecha)
+                    .ToListAsync();
+
+                return View(turnos);
+            }
+
+            return RedirectToAction(nameof(subHome));
+        }
+
 
         private bool TurnoExists(int? id)
         {

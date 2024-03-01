@@ -1,5 +1,8 @@
+@model IEnumerable<ProyectoTurnos.Models.Turno>
+
 @{
     ViewData["Title"] = "SubHome Page";
+    var turnosOrdenados = Model.OrderBy(p => p.fecha).ThenBy(p => p.hora);
 }
 
 <div class="text-center">
@@ -13,6 +16,61 @@
                 <button class="btn btn-primary" type="submit" id="button-buscar">Buscar</button>
             </div>
         </form>
+        
+        <form asp-action="FindByFecha" asp-controller="Turno" method="get" class="form-inline" style="margin: 10px">
+            <div class="input-group">
+                <input type="date" name="BusquedaTurnoFecha" class="form-control" placeholder="Ingresar fecha..." aria-label="Ingresar fecha..." aria-describedby="button-buscar" />
+                <button class="btn btn-primary" type="submit" id="button-buscar">Buscar</button>
+            </div>
+        </form>
     </div>
+    
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.paciente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.consulta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.hora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in turnosOrdenados) {
+            <tr>    
+                <td>
+                    @Html.DisplayFor(modelItem => item.paciente.nombreCompleto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.consulta.descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fecha)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hora)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                <td>
+                    <a asp-action="Edit" style="margin-left: 10px" class="btn btn-outline-primary btn-sm" asp-route-id="@item.IdTurno"><i class="bi bi-pencil-square"></i> Editar</a>   
+                    <a asp-action="Delete" style="margin-left: 10px" class="btn btn-outline-danger btn-sm" asp-route-id="@item.IdTurno"><i class="bi bi-person-dash"></i> Eliminar</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    
     <a class="button btn btn-outline-dark" asp-action="Home" asp-controller="Home" style="margin-top: 150px;margin-right: 300px">Volver a Home</a>
 </div>
