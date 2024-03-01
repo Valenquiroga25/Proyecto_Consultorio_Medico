@@ -197,7 +197,7 @@ namespace ProyectoTurnos
         }
         
         
-        // Edit que usamos para los turnos buscados por fecha ("FindByFecha")
+        // Delete que usamos para los turnos buscados por fecha ("FindByFecha")
         public async Task<IActionResult> Delete2(int? id)
         {
             if (id == null){return NotFound();}
