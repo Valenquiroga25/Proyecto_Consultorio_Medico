@@ -39,6 +39,7 @@ namespace ProyectoTurnos
             return View(turnos);
         }
         
+        // El index al que nos dirigimos cuando editamos o eliminamos un paciente buscado por "FindByDNI".
         public async Task<IActionResult> Index2(int id)
         {
             var turnos = await _context.Turno
@@ -50,6 +51,7 @@ namespace ProyectoTurnos
             return View(turnos);
         }
         
+        // El index al que nos dirigimos cuando editamos o eliminamos un paciente buscado por "FindByFecha".
         public async Task<IActionResult> Index3(DateTime fecha)
         {
             var turnos = await _context.Turno
@@ -127,7 +129,7 @@ namespace ProyectoTurnos
             return RedirectToAction(nameof(Index2), new {id=idPaciente});
         }
 
-        // GET: Turno/Edit/5
+        // Edit que usamos para los turnos buscados por fecha ("FindByFecha")
         public async Task<IActionResult> Edit2(int? id)
         {
             if (!TurnoExists(id)){return NotFound();}
@@ -194,6 +196,8 @@ namespace ProyectoTurnos
             return RedirectToAction(nameof(Index2), new { id = idPaciente });
         }
         
+        
+        // Edit que usamos para los turnos buscados por fecha ("FindByFecha")
         public async Task<IActionResult> Delete2(int? id)
         {
             if (id == null){return NotFound();}
@@ -226,7 +230,7 @@ namespace ProyectoTurnos
             return RedirectToAction(nameof(Index3), new {fecha});
         }
         
-        // FindByDNI busca turnos de paciente por DNI.
+        // El index al que nos dirigimos cuando buscamos turno por DNI de paciente.
         public async Task<IActionResult> FindByDNI(int? BusquedaTurno)
         {
             ViewData["BusquedaTurno"] = BusquedaTurno;
@@ -245,7 +249,7 @@ namespace ProyectoTurnos
             return RedirectToAction(nameof(subHome));
         }
         
-        // FindByDNI busca turnos de paciente por fecha.
+        // El index al que nos dirigimos cuando buscamos turno por fecha de turno.
         public async Task<IActionResult> FindByFecha(DateTime? BusquedaTurnoFecha)
         {
             ViewData["BusquedaTurno"] = BusquedaTurnoFecha;
