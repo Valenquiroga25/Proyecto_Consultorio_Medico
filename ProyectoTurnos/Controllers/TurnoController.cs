@@ -196,7 +196,6 @@ namespace ProyectoTurnos
             return RedirectToAction(nameof(Index2), new { id = idPaciente });
         }
         
-        
         // Delete que usamos para los turnos buscados por fecha ("FindByFecha")
         public async Task<IActionResult> Delete2(int? id)
         {
