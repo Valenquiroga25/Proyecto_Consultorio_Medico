@@ -86,8 +86,6 @@ namespace ProyectoTurnos.Controllers
 
             if (ModelState.IsValid)
             {
-                if (DocumentoExist(paciente.documento)){throw new Exception("Ya existe un paciente con este documento en la base de datos.");}
-                
                 _context.Update(paciente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

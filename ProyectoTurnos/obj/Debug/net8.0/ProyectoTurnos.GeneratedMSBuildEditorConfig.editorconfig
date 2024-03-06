@@ -17,131 +17,131 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProyectoTurnos
 build_property.RootNamespace = ProyectoTurnos
-build_property.ProjectDir = C:\Users\54345\OneDrive\Escritorio\ProyectoTurnos\Proyecto-.NET\ProyectoTurnos\
+build_property.ProjectDir = C:\Users\54345\OneDrive\Escritorio\Proyectos\ProyectoTurnos\Proyecto-.NET\ProyectoTurnos\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\54345\OneDrive\Escritorio\ProyectoTurnos\Proyecto-.NET\ProyectoTurnos
+build_property.MSBuildProjectDirectory = C:\Users\54345\OneDrive\Escritorio\Proyectos\ProyectoTurnos\Proyecto-.NET\ProyectoTurnos
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Acceso/Ingresar.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Acceso/Ingresar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjZXNvXEluZ3Jlc2FyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Consulta/Create.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Consulta/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Consulta/Delete.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Consulta/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Consulta/Edit.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Consulta/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Consulta/Index.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Consulta/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29uc3VsdGFcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Home/Home.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Home/Home.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxIb21lLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Home/Privacy.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Paciente/Create.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Paciente/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Paciente/Delete.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Paciente/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Paciente/Details.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Paciente/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Paciente/Edit.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Paciente/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Paciente/FindByDNI.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Paciente/FindByDNI.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcRmluZEJ5RE5JLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Paciente/Index.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Paciente/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGFjaWVudGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Shared/Error.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Shared/_LayoutLogin.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Shared/_LayoutLogin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Create.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Delete.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Delete2.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Delete2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cRGVsZXRlMi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Edit.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Edit2.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Edit2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cRWRpdDIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/FindByDNI.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/FindByDNI.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cRmluZEJ5RE5JLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/FindByFecha.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/FindByFecha.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cRmluZEJ5RmVjaGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Index.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Index2.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Index2.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cSW5kZXgyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Index3.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/Index3.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cSW5kZXgzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/subHome.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Turno/subHome.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHVybm9cc3ViSG9tZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/_ViewImports.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/_ViewStart.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/54345/OneDrive/Escritorio/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Shared/_Layout.cshtml]
+[C:/Users/54345/OneDrive/Escritorio/Proyectos/ProyectoTurnos/Proyecto-.NET/ProyectoTurnos/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-toxeuaq61y
