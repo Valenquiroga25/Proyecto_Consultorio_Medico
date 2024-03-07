@@ -9,7 +9,7 @@
 
 <div style="display: flex; justify-content: start; align-items: center">
     <a asp-action="Create" class="button btn btn-outline-primary" style="margin: 10px">Registrar paciente</a>
-    <form asp-action="FindByDNI" method="get" class="form-inline" style="margin: 10px">
+    <form asp-action="FindByDNI" asp-controller="Paciente" method="get" class="form-inline" style="margin: 10px">
         <div class="input-group">
             <input type="number" name="Busqueda" class="form-control" placeholder="Buscar paciente..." aria-label="Buscar paciente..." aria-describedby="button-buscar" />
             <button class="btn btn-primary" type="submit" id="button-buscar">Buscar</button>

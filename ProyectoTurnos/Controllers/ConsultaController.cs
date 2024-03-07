@@ -60,12 +60,23 @@ namespace ProyectoTurnos
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdConsulta,descripcion,precio")] Consulta consulta)
         {
-            if (id != consulta.IdConsulta){return NotFound();}
-
             if (ModelState.IsValid)
             {
-                if (ConsultaExists(consulta.descripcion)){throw new Exception("Ya existe esta consulta en la base de datos.");}
-                
+                var consultaEncontrada =  await _context.Consulta.FirstOrDefaultAsync(c => c.descripcion == consulta.descripcion);
+
+                if (consultaEncontrada!=null)
+                {
+                    if (consultaEncontrada.IdConsulta != consulta.IdConsulta)
+                    {
+                        throw new Exception("La consulta ya se encuentra registrada en la base de datos.");
+                    }
+
+                    consultaEncontrada.descripcion = consulta.descripcion;
+                    consultaEncontrada.precio = consulta.precio;
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+
                 _context.Update(consulta);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

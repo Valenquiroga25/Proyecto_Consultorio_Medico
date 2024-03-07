@@ -82,10 +82,27 @@ namespace ProyectoTurnos.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("idPaciente,nombreCompleto,obraSocial,documento,telefono,fechaNacimiento")] Paciente paciente)
         {
-            if (!PacienteExists(paciente.idPaciente)){return NotFound();}
-
             if (ModelState.IsValid)
             {
+                
+                var pacienteEncontrado =  await _context.Paciente.FirstOrDefaultAsync(p => p.documento == paciente.documento);
+
+                if (pacienteEncontrado!=null)
+                {
+                    if (pacienteEncontrado.idPaciente != paciente.idPaciente)
+                    {
+                        throw new Exception("El paciente ya se encuentra registrado en la base de datos.");
+                    }
+
+                    pacienteEncontrado.nombreCompleto = paciente.nombreCompleto;
+                    pacienteEncontrado.documento = paciente.documento;
+                    pacienteEncontrado.obraSocial = paciente.obraSocial;
+                    pacienteEncontrado.fechaNacimiento= paciente.fechaNacimiento;
+                    pacienteEncontrado.telefono= paciente.telefono;
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+
                 _context.Update(paciente);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -127,16 +144,19 @@ namespace ProyectoTurnos.Controllers
             return RedirectToAction(nameof(Index));
         }
         
-        public async Task<IActionResult> FindByDNI(int? Busqueda)
+        public async Task<IActionResult> FindByDNI(int Busqueda)
         {
-            ViewData["Busqueda"] = Busqueda;
-            if (Busqueda != null && Busqueda.ToString().Length==8)
+            ViewData["BusquedaTurno"] = Busqueda;
+            if (Busqueda.ToString().Length == 8)
             {
-                var paciente = await _context.Paciente.Where(u => Convert.ToInt32(u.documento) == Busqueda).ToListAsync();
+                var dni = Convert.ToInt32(Busqueda);
+                var pacientes = await _context.Paciente
+                    .Where(u => u.documento == dni)
+                    .ToListAsync();
 
-                return View(paciente);
+                return View(pacientes);
             }
-    
+
             return RedirectToAction(nameof(Index));
         }
         
