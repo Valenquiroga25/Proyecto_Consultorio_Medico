@@ -156,6 +156,7 @@ namespace ProyectoTurnos.Controllers
 
                 return View(pacientes);
             }
+
             return RedirectToAction(nameof(Index));
         }
         
