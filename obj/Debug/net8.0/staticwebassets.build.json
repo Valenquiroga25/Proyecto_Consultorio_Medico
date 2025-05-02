@@ -1,0 +1,19 @@
+{
+  "Version": 1,
+  "Hash": "K+5x9U9nTlvbogeRztg1yo+F6AbdwdDGooTJvLcHFgM=",
+  "Source": "ProyectoTurnos",
+  "BasePath": "_content/ProyectoTurnos",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ProyectoTurnos\\wwwroot",
+      "Source": "ProyectoTurnos",
+      "ContentRoot": "C:\\Users\\54345\\OneDrive\\Escritorio\\Proyectos\\ProyectoTurnos\\ProyectoTurnos\\wwwroot\\",
+      "BasePath": "_content/ProyectoTurnos",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": []
+}
