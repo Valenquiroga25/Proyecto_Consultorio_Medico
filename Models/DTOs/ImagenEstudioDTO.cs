@@ -1,13 +1,13 @@
 namespace ProyectoTurnos.Models.DTOs;
 
-public class ImagenHistoriaDTO
+public class ImagenEstudioDTO
 {
     public string documentoPacienteHistoria { get; set; }
     public byte[] imagen { get; set; }
 
-    public ImagenHistoriaDTO() {}
+    public ImagenEstudioDTO() {}
 
-    public ImagenHistoriaDTO(string documentoPacienteHistoria, byte[] imagen)
+    public ImagenEstudioDTO(string documentoPacienteHistoria, byte[] imagen)
     {
         this.documentoPacienteHistoria = documentoPacienteHistoria;
         this.imagen = imagen;
