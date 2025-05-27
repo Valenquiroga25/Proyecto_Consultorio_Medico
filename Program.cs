@@ -15,6 +15,10 @@ internal class Program
         builder.Services.AddScoped<AccesoService>(); // También le dice al contenedor: “cuando alguien necesite AccesoService, créalo automáticamente”. Sirve para instanciar los Controllers.
         builder.Services.AddScoped<CalendarioService>(); 
         builder.Services.AddScoped<PacienteService>();
+        builder.Services.AddScoped<HistoriaService>();
+        builder.Services.AddScoped<ItemEstudioService>();
+        builder.Services.AddScoped<EstudioService>();
+        builder.Services.AddScoped<ImagenEstudioService>();
         builder.Services.AddScoped<TurnoService>();
 
         builder.Services.AddControllers(); // Registra los controladores con atributos [ApiController].

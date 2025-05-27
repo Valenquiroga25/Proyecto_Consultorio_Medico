@@ -30,6 +30,7 @@ public class AccesoService : IAccesoService
         catch (Exception e)
         {
             Console.WriteLine("Ha ocurrido un error con el acceso: " + e.Message);
+            throw;
         }
     }
 

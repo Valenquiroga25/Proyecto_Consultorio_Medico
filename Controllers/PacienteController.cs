@@ -15,12 +15,6 @@ public class PacienteController : Controller
     {
         this.pacienteService = pacienteService;
     }
-    
-    [HttpGet("mensaje")]
-    public IActionResult GetMensaje()
-    {
-        return Ok("Api funcionando correctamente!");
-    }
 
     [HttpPost("registrar")]
     public IActionResult RegistrarPaciente(PacienteDTO pacienteDto)
@@ -35,10 +29,11 @@ public class PacienteController : Controller
                 return Problem("El paciente ya se encuentra registrado en el sistema!");
             }
 
-            Paciente pacienteRegistrar = new Paciente(pacienteDto.nombreCompleto,
+            Paciente pacienteRegistrar = new Paciente(pacienteDto.nombres,
+                pacienteDto.apellidos,
                 pacienteDto.documento,
                 pacienteDto.fechaNacimiento,
-                pacienteDto.obraSocial,
+                pacienteDto.codArea,
                 pacienteDto.telefono,
                 pacienteDto.direccion,
                 pacienteDto.correo);
@@ -55,24 +50,19 @@ public class PacienteController : Controller
     }
     
     [HttpGet("listar")]
-    public IActionResult GetPacientes()
+    public IActionResult ListarPacientes()
     {
         try
         {
             List<Paciente>? pacientesBuscados = pacienteService.ListarPacientes();
 
-            if (pacientesBuscados != null)
+            if (pacientesBuscados.Count > 0)
             {
-                if (pacientesBuscados.Count > 0)
-                {
-                    Console.WriteLine("Listado enviado con éxito!");
-                    return Ok(pacientesBuscados);
-                }
-
-                return NoContent();
+                Console.WriteLine("Listado enviado con éxito!");
+                return Ok(pacientesBuscados);
             }
 
-            return Problem("Ocurrió un error al querer listar los pacientes en el Controller del Backend!");
+            return NoContent();
         }
         catch (Exception e)
         {
@@ -81,7 +71,7 @@ public class PacienteController : Controller
     }
 
     [HttpGet("/{documento}")]
-    public IActionResult GetPacienteByDocumento(string documento)
+    public IActionResult BuscarPacienteByDocumento(string documento)
     {
         try
         {
@@ -126,7 +116,7 @@ public class PacienteController : Controller
     }
 
     [HttpDelete("eliminar/{documento}")]
-    public IActionResult DeletePaciente(string documento)
+    public IActionResult EliminarPaciente(string documento)
     {
         {
             try

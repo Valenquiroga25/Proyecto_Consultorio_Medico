@@ -42,6 +42,7 @@ public class TurnoService : ITurnoService
         catch (Exception e)
         {
             Console.WriteLine("Ha ocurrido un error en el turno: " + e.Message);
+            throw;
         }
     }
 
@@ -54,7 +55,7 @@ public class TurnoService : ITurnoService
         catch (Exception e)
         {
             Console.WriteLine("Ha ocurrido un error en el turno: " + e.Message);
-            return null;
+            throw;
         }
     }
 
@@ -71,7 +72,7 @@ public class TurnoService : ITurnoService
         catch (Exception e)
         {
             Console.WriteLine("Ha ocurrido un error en el turno: " + e.Message);
-            return null;
+            throw;
         }
     }
 
@@ -98,6 +99,7 @@ public class TurnoService : ITurnoService
         catch (Exception e)
         {
             Console.WriteLine("Ha ocurrido un error en el turno: " + e.Message);
+            throw;
         }
     }
 

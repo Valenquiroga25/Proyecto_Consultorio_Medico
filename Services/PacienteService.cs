@@ -15,7 +15,7 @@ public class PacienteService : IPacienteService
         this.context = context;
     }
 
-    public void RegistrarPaciente(Paciente paciente)
+    public Paciente RegistrarPaciente(Paciente paciente)
     {
         try
         {
@@ -24,20 +24,22 @@ public class PacienteService : IPacienteService
             if (pacienteBuscado != null)
             {
                 Console.WriteLine("El paciente ya se encuentra registrado en el sistema!");
-                return;
+                return null;
             }
             
             context.Paciente.Add(paciente);
             context.SaveChanges();
             Console.WriteLine("El paciente fue registrado con éxito!");
+            return paciente;
         }
         catch (Exception e)
         {
             Console.WriteLine("Ha ocurrido un error en el paciente: " + e.Message);
+            throw;
         }
     }
 
-    public List<Paciente>? ListarPacientes()
+    public List<Paciente> ListarPacientes()
     {
         try
         {
@@ -46,7 +48,7 @@ public class PacienteService : IPacienteService
         catch (Exception e)
         {
             Console.WriteLine("Ha ocurrido un error en el paciente: " + e.Message);
-            return null;
+            throw;
         }
     }
     
@@ -60,15 +62,15 @@ public class PacienteService : IPacienteService
         catch (Exception e)
         { 
             Console.WriteLine("Ha ocurrido un error en el paciente: " + e.Message);
-            return null;
+            throw;
         }
     }
 
-    public Paciente? BuscarPacienteByNombreCompleto(string nombre)
+    public Paciente? BuscarPacienteByApellido(string apellidos)
     {
         try
         {
-            Paciente? pacienteBuscado = context.Paciente.SingleOrDefault(p => p.nombreCompleto == nombre);
+            Paciente? pacienteBuscado = context.Paciente.SingleOrDefault(p => p.apellidos == apellidos);
             
             if(pacienteBuscado == null)
                 Console.WriteLine("El paciente no se encuentra registrado en el sistema!");
@@ -78,7 +80,7 @@ public class PacienteService : IPacienteService
         catch (Exception e)
         {
             Console.WriteLine("Ha ocurrido un error en el paciente: " + e.Message);
-            return null;
+            throw;
         }    
     }
     
@@ -94,10 +96,11 @@ public class PacienteService : IPacienteService
                 return;
             }
             
-            pacienteBuscado.nombreCompleto = paciente.nombreCompleto;
+            pacienteBuscado.nombres = paciente.nombres;
+            pacienteBuscado.apellidos = paciente.apellidos;
             pacienteBuscado.documento = paciente.documento;
             pacienteBuscado.fechaNacimiento = paciente.fechaNacimiento;
-            pacienteBuscado.obraSocial = paciente.obraSocial;
+            pacienteBuscado.codArea = paciente.codArea;
             pacienteBuscado.telefono = paciente.telefono;
             pacienteBuscado.direccion = paciente.direccion;
             pacienteBuscado.correo = paciente.correo;
@@ -108,6 +111,7 @@ public class PacienteService : IPacienteService
         catch (Exception e)
         {
             Console.WriteLine("Ha ocurrido un error en el paciente: " + e.Message);
+            throw;
         }
     }
 
@@ -122,6 +126,7 @@ public class PacienteService : IPacienteService
         catch (Exception e)
         {
             Console.WriteLine("Ha ocurrido un error al eliminar un paciente del sistema: " + e.Message);
+            throw;
         }
     }
 }
