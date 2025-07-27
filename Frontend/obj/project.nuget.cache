@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jy+Ieei8W4w=",
+  "dgSpecHash": "X/t4cUKky5Y=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Valen\\Documents\\Proyectos\\ConsultorioMedico\\Proyecto_Consultorio_Medico\\Frontend\\ProyectoTurnos_FrontEnd.csproj",
+  "projectFilePath": "C:\\Users\\Valen\\Documents\\Proyectos\\Proyecto_Consultorio_Medico\\Frontend\\ProyectoTurnos_FrontEnd.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Valen\\.nuget\\packages\\extended.wpf.toolkit\\4.7.25104.5739\\extended.wpf.toolkit.4.7.25104.5739.nupkg.sha512"
   ],

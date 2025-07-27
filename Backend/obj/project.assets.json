@@ -8347,19 +8347,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\54345\\.nuget\\packages\\": {}
+    "C:\\Users\\Valen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\54345\\OneDrive\\Escritorio\\Proyectos\\ProyectoTurnos\\ProyectoTurnos\\ProyectoTurnos.csproj",
+      "projectUniqueName": "C:\\Users\\Valen\\Documents\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\ProyectoTurnos.csproj",
       "projectName": "ProyectoTurnos",
-      "projectPath": "C:\\Users\\54345\\OneDrive\\Escritorio\\Proyectos\\ProyectoTurnos\\ProyectoTurnos\\ProyectoTurnos.csproj",
-      "packagesPath": "C:\\Users\\54345\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\54345\\OneDrive\\Escritorio\\Proyectos\\ProyectoTurnos\\ProyectoTurnos\\obj\\",
+      "projectPath": "C:\\Users\\Valen\\Documents\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\ProyectoTurnos.csproj",
+      "packagesPath": "C:\\Users\\Valen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Valen\\Documents\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\54345\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Valen\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -8377,6 +8377,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -8429,7 +8434,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\54345\\.dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\Valen\\.dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

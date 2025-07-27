@@ -122,11 +122,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Valen\\Documents\\Proyectos\\ConsultorioMedico\\Proyecto_Consultorio_Medico\\Frontend\\ProyectoTurnos_FrontEnd.csproj",
+      "projectUniqueName": "C:\\Users\\Valen\\Documents\\Proyectos\\Proyecto_Consultorio_Medico\\Frontend\\ProyectoTurnos_FrontEnd.csproj",
       "projectName": "ProyectoTurnos_FrontEnd",
-      "projectPath": "C:\\Users\\Valen\\Documents\\Proyectos\\ConsultorioMedico\\Proyecto_Consultorio_Medico\\Frontend\\ProyectoTurnos_FrontEnd.csproj",
+      "projectPath": "C:\\Users\\Valen\\Documents\\Proyectos\\Proyecto_Consultorio_Medico\\Frontend\\ProyectoTurnos_FrontEnd.csproj",
       "packagesPath": "C:\\Users\\Valen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Valen\\Documents\\Proyectos\\ConsultorioMedico\\Proyecto_Consultorio_Medico\\Frontend\\obj\\",
+      "outputPath": "C:\\Users\\Valen\\Documents\\Proyectos\\Proyecto_Consultorio_Medico\\Frontend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Valen\\AppData\\Roaming\\NuGet\\NuGet.Config"
