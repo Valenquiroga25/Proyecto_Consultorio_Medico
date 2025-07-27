@@ -1,0 +1,130 @@
+<Page x:Class="ProyectoTurnos_FrontEnd.MiApp.Views.CreacionHistoria"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      mc:Ignorable="d"
+      Title="CreacionHistoria" Background="#FDF6EC">
+    
+    <StackPanel HorizontalAlignment="Center">
+        <Border Background="#FEFEF0" BorderBrush="DarkGray" BorderThickness="1.5" Width="600" Height="750" CornerRadius="8" Margin="0,20,0,0">
+        <!-- StackPanel centrado -->
+            <StackPanel HorizontalAlignment="Center">
+                <!--Título del login (Lo único que se encuentra en la primera fila)-->
+                <TextBlock 
+                           FontSize="22"
+                           FontWeight="SemiBold"
+                           FontFamily="Segoe UI"
+                           Foreground="#2C4B56"
+                           Margin="0,30,0,0"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center">Coloque los datos del paciente
+                    <TextBlock.Effect>
+                        <DropShadowEffect Color="#FEFEFE" BlurRadius="5" ShadowDepth="2" Opacity="0.5" />
+                    </TextBlock.Effect>
+                </TextBlock>
+                
+                <WrapPanel>
+                    <Label FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#7BAF9E" Margin="0,10,0,0">Nombres</Label>
+                    <Label VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#2C4B56" Margin="0,0,0,0">*</Label>
+                </WrapPanel>
+                <Border MinWidth="400" Height="40" CornerRadius="8" BorderBrush="DarkGray" BorderThickness="2" Background="#FEFEFE">
+                    <TextBox x:Name="nombresTextbox" Padding="10,7,10,10" Background="Transparent" BorderThickness="0" FontSize="15" FontWeight="Medium" VerticalAlignment="Center"/>
+                </Border>
+                
+                <WrapPanel>
+                    <Label FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#7BAF9E" Margin="0,10,0,0">Apellidos</Label>
+                    <Label VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#2C4B56" Margin="0,0,0,0">*</Label>
+                </WrapPanel>
+                <Grid>
+                    <Border MinWidth="400" Height="40" CornerRadius="8" BorderBrush="DarkGray" BorderThickness="2" Background="#FEFEFE">
+                        <TextBox x:Name="apellidosTextbox" Padding="10,7,10,10" Background="Transparent" BorderThickness="0" FontSize="15" FontWeight="Medium"/>
+                    </Border>
+                </Grid>
+                
+                <WrapPanel>
+                    <Label FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#7BAF9E" Margin="0,10,0,0">Documento</Label>
+                    <Label VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#2C4B56" Margin="0,0,0,0">*</Label>
+                </WrapPanel>
+                <Grid>
+                    <Border MinWidth="400" Height="40" CornerRadius="8" BorderBrush="DarkGray" BorderThickness="2" Background="#FEFEFE">
+                        <TextBox x:Name="documentoTextbox" MaxLength="8" Padding="10,7,10,10" Background="Transparent" BorderThickness="0" FontSize="15" FontWeight="Medium"/>
+                    </Border>
+                </Grid>
+                
+                <WrapPanel>
+                    <Label FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#7BAF9E" Margin="0,10,0,0">Fecha Nacimiento</Label>
+                    <Label VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#2C4B56" Margin="0,0,0,0">*</Label>
+                </WrapPanel>
+                
+                <Grid>
+                    <Border MinWidth="400" Height="40" CornerRadius="8" BorderBrush="DarkGray" BorderThickness="2" Background="#FEFEFE">
+                        <TextBox x:Name="fechaNacimientoTextbox" MaxLength="16" TextChanged="FormatearTexto" Padding="10,7,10,10" Background="Transparent" BorderThickness="0" FontSize="15" FontWeight="Medium"/>
+                    </Border>
+                    <TextBlock Padding="10,7,10,10" Margin="25,0,0,0" IsHitTestVisible="False" Background="Transparent" FontSize="17" FontWeight="Medium">  /</TextBlock>
+                    <TextBlock Padding="10,7,10,10" Margin="55,0,0,0" IsHitTestVisible="False" Background="Transparent" FontSize="17" FontWeight="Medium">  /</TextBlock>
+                </Grid>
+
+                <Label FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#7BAF9E" Margin="0,10,0,0">Dirección</Label>
+                <Grid>
+                    <Border MinWidth="400" Height="40" CornerRadius="8" BorderBrush="DarkGray" BorderThickness="2" Background="#FEFEFE">
+                        <TextBox x:Name="direccionTextbox" Padding="10,7,10,10" Background="Transparent" BorderThickness="0" FontSize="15" FontWeight="Medium"/>
+                    </Border>
+                </Grid>
+                
+                <WrapPanel>
+                    <Label FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#7BAF9E" Margin="-2,10,0,0">Cod. Área</Label>
+                    <Label VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#2C4B56" Margin="-5,0,0,0">*</Label>
+                    <Label FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#7BAF9E" Margin="0,10,0,0">Teléfono</Label>
+                    <Label VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#2C4B56" Margin="0,0,0,0">*</Label>
+                </WrapPanel>
+                
+                <WrapPanel>
+                    <Border MinWidth="80" Height="40" CornerRadius="8" BorderBrush="DarkGray" BorderThickness="2" Background="#FEFEFE" Margin="0,0,10,0">
+                        <TextBox x:Name="codAreaTextbox" Width="70" Padding="6,7,10,10" MaxLength="6" Background="Transparent" BorderThickness="0" FontSize="15" FontWeight="Medium"/>
+                   </Border>
+                    <Border MinWidth="310" Height="40" CornerRadius="8" BorderBrush="DarkGray" BorderThickness="2" Background="#FEFEFE">
+                        <TextBox x:Name="telefonoTextbox" MaxLength="10" Padding="10,7,10,10" Background="Transparent" BorderThickness="0" FontSize="15" FontWeight="Medium"/>
+                    </Border>
+                </WrapPanel>
+
+                
+                <Label FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#7BAF9E" Margin="0,10,0,0">Correo electrónico</Label>
+                <Grid>
+                    <Border MinWidth="400" Height="40" CornerRadius="8" BorderBrush="DarkGray" BorderThickness="2" Background="#FEFEFE">
+                        <TextBox x:Name="correoTextbox" Padding="10,7,10,10" Background="Transparent" BorderThickness="0" FontSize="15" FontWeight="Medium"/>
+                    </Border>
+                </Grid>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Border Grid.Column="0" Width="150" Height="40" Background="LightSalmon" BorderBrush="#6E89A2" BorderThickness="1.5" CornerRadius="8" HorizontalAlignment="Center" Margin="0,30,0,10">
+                        <Button Content="Cancelar" 
+                                Background="Transparent" 
+                                FontWeight="SemiBold" 
+                                Foreground="#3A506B" 
+                                BorderThickness="0" 
+                                BorderBrush="Transparent"
+                                FontSize="16" 
+                                Cursor="Hand"
+                                Click="Cancelar"/>
+                    </Border>
+                    <Border Grid.Column="1" Width="200" Height="40" Background="#CFFFD0" BorderBrush="#6E89A2" BorderThickness="1.5" CornerRadius="8" HorizontalAlignment="Center" Margin="50,30,0,10">
+                        <Button Content="Generar Historia Clínica" 
+                                Background="Transparent" 
+                                FontWeight="SemiBold" 
+                                Foreground="#3A506B" 
+                                BorderThickness="0" 
+                                FontSize="16" 
+                                Cursor="Hand"
+                                Click="RegistrarHistoriaClinica"/>
+                    </Border>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Page>
