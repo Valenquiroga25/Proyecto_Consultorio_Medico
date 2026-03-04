@@ -4,5 +4,4 @@ public class LoginDTO
 {
     public string nombreUsuario { get; set; }
     public string contrasenia { get; set; }
-
 }

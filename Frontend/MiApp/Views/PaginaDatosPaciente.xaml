@@ -8,70 +8,73 @@
 
     <Grid>
         <!-- Loader mientras carga -->
-        <Border x:Name="LoaderPanel" Background="#FDF6EC">
-                
-        </Border>
-            
+        <Border x:Name="LoaderPanel" Background="#FDF6EC" />
+
         <!--Botón de volver-->
-        <Border CornerRadius="5" Width="70" Height="50" BorderBrush="#DDD" BorderThickness="1" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Button Click="Volver" Content="Volver" FontWeight="SemiBold" Foreground="#145A54" Cursor="Hand" BorderBrush="Transparent" BorderThickness="0" Background="Transparent"/>
+        <Border CornerRadius="5" Width="70" Height="50" BorderBrush="#DDD" BorderThickness="1" Margin="20,20,0,0"
+                HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button Click="Volver" Content="Volver" FontWeight="SemiBold" Foreground="#145A54" Cursor="Hand"
+                    BorderBrush="Transparent" BorderThickness="0" Background="Transparent" />
         </Border>
-        
+
         <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
             <!-- Contenido principal -->
-            <Border x:Name="PaginaDatos" CornerRadius="10" BorderThickness="2" BorderBrush="#145A54" HorizontalAlignment="Stretch" Padding="20,20,30,20">
+            <Border x:Name="PaginaDatos" CornerRadius="10" BorderThickness="2" BorderBrush="#145A54"
+                    HorizontalAlignment="Stretch" Padding="20,20,30,20">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
                     <!-- Nombre Completo -->
                     <WrapPanel Grid.Row="0" HorizontalAlignment="Center">
-                        <TextBlock Text="{Binding historia.nombres}" Margin="0,30,0,30" FontSize="40" Foreground="#2C4B56"/>
-                        <TextBlock Text=" " Margin="0,30,0,30" FontSize="40" Foreground="#2C4B56"/>
-                        <TextBlock Text="{Binding historia.apellidos}" Margin="0,30,0,30" FontSize="40" Foreground="#2C4B56"/>
+                        <TextBlock Text="{Binding historia.nombres}" Margin="0,30,0,30" FontSize="40"
+                                   Foreground="#2C4B56" />
+                        <TextBlock Text=" " Margin="0,30,0,30" FontSize="40" Foreground="#2C4B56" />
+                        <TextBlock Text="{Binding historia.apellidos}" Margin="0,30,0,30" FontSize="40"
+                                   Foreground="#2C4B56" />
                     </WrapPanel>
 
                     <!-- Documento -->
                     <WrapPanel Grid.Row="1">
                         <TextBlock Margin="32,20,5,20" FontWeight="SemiBold" FontSize="18">Documento: </TextBlock>
-                        <TextBlock Margin="5,20,0,20" FontSize="18" Text="{Binding historia.documentoPaciente}"/>
+                        <TextBlock Margin="5,20,0,20" FontSize="18" Text="{Binding historia.documentoPaciente}" />
                     </WrapPanel>
 
                     <!-- Fecha de Nacimiento -->
                     <WrapPanel Grid.Row="2">
                         <TextBlock Margin="32,20,5,20" FontSize="18" FontWeight="SemiBold">Fecha Nacimiento: </TextBlock>
-                        <TextBlock Margin="5,20,0,20" FontSize="18" Text="{Binding historia.fechaNacimiento}"/>
+                        <TextBlock Margin="5,20,0,20" FontSize="18" Text="{Binding historia.fechaNacimiento}" />
                     </WrapPanel>
 
                     <!-- Teléfono -->
                     <WrapPanel Grid.Row="3">
-                        <TextBlock Margin="32,20,5,20" FontSize="18" FontWeight="SemiBold" Text="Teléfono: "/>
-                        <TextBlock Margin="5,21,0,20" FontSize="18" Text="{Binding historia.codArea}"/>
-                        <TextBlock Margin="5,21,0,20" FontSize="18" Text="-"/>
-                        <TextBlock Margin="5,21,0,20" FontSize="18" Text="{Binding historia.telefono}"/>
+                        <TextBlock Margin="32,20,5,20" FontSize="18" FontWeight="SemiBold" Text="Teléfono: " />
+                        <TextBlock Margin="5,21,0,20" FontSize="18" Text="{Binding historia.codArea}" />
+                        <TextBlock Margin="5,21,0,20" FontSize="18" Text="-" />
+                        <TextBlock Margin="5,21,0,20" FontSize="18" Text="{Binding historia.telefono}" />
                     </WrapPanel>
 
                     <!-- Dirección -->
                     <WrapPanel Grid.Row="4">
                         <TextBlock Margin="32,20,5,20" FontSize="18" FontWeight="SemiBold">Dirección: </TextBlock>
-                        <TextBlock Margin="5,20,0,20" FontSize="18" Text="{Binding historia.direccion}"/>
+                        <TextBlock Margin="5,20,0,20" FontSize="18" Text="{Binding historia.direccion}" />
                     </WrapPanel>
 
                     <!-- Correo Electrónico -->
                     <WrapPanel Grid.Row="5">
                         <TextBlock Margin="32,20,5,20" FontSize="18" FontWeight="SemiBold">Correo Electrónico: </TextBlock>
-                        <TextBlock Margin="5,20,0,20" FontSize="18" Text="{Binding historia.correo}"/>
+                        <TextBlock Margin="5,20,0,20" FontSize="18" Text="{Binding historia.correo}" />
                     </WrapPanel>
                 </Grid>
             </Border>

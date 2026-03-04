@@ -12,9 +12,9 @@ namespace ProyectoTurnos_FrontEnd.MiApp.Views;
 
 public partial class PaginaCreacionItem : Page
 {
-    private Frame mainFrame;
-    private string documentoPaciente;
-    public ObservableCollection<ImagenEstudioDTO> imagenesEstudio { get; set; } = new ObservableCollection<ImagenEstudioDTO>();
+    private readonly string documentoPaciente;
+    private readonly Frame mainFrame;
+
     public PaginaCreacionItem(Frame mainFrame, string documentoPaciente)
     {
         InitializeComponent();
@@ -22,14 +22,16 @@ public partial class PaginaCreacionItem : Page
         this.documentoPaciente = documentoPaciente;
         DataContext = this;
     }
-    
+
+    public ObservableCollection<ImagenEstudioDTO> imagenesEstudio { get; set; } = new();
+
     private async void CrearRegistro(object sender, RoutedEventArgs routedEventArgs)
     {
         try
         {
-            HttpClient httpClient = new HttpClient();
-            string urlItem = "http://localhost:8080/api/itemestudio/generar";
-
+            var httpClient = new HttpClient();
+            var urlItem = "http://localhost:8080/api/itemestudio/generar";
+            
             var (datosValidos, mensajeError) = validarDatos(fechaTextbox.Text, nombreEstudioTextbox.Text);
 
             if (!(bool)datosValidos)
@@ -37,9 +39,11 @@ public partial class PaginaCreacionItem : Page
                 MessageBox.Show(mensajeError);
                 return;
             }
-            
-            ItemEstudioDTO item = new ItemEstudioDTO(documentoPaciente, fechaTextbox.Text,new List<EstudioDTO>());
 
+            var item = new ItemEstudioDTO(documentoPaciente, fechaTextbox.Text);
+            EstudioDTO estudioDTO= new EstudioDTO(nombreEstudioTextbox.Text, documentoPaciente, fechaTextbox.Text);
+            item.estudios.Add(estudioDTO);
+            
             var responseItem = await httpClient.PostAsJsonAsync(urlItem, item);
             if (responseItem.IsSuccessStatusCode)
             {
@@ -48,38 +52,51 @@ public partial class PaginaCreacionItem : Page
             }
             else
             {
-                Console.WriteLine("Ha ocurrido un error con la llamada al endpoint 'urlItem'" + responseItem.StatusCode + " " + responseItem.Content.ReadAsStringAsync().Result);
+                Console.WriteLine("Ha ocurrido un error con la llamada al endpoint 'urlItem'" +
+                                  responseItem.StatusCode + " " + responseItem.Content.ReadAsStringAsync().Result);
                 return;
             }
-            
-            string urlEstudio = "http://localhost:8080/api/estudio/generar";
-            
-            var responseEstudio = await httpClient.PostAsJsonAsync(urlEstudio, new EstudioDTO(nombreEstudioTextbox.Text,documentoPaciente, fechaTextbox.Text));
+
+            var urlEstudio = "http://localhost:8080/api/estudio/generar";
+
+            var responseEstudio = await httpClient.PostAsJsonAsync(urlEstudio, estudioDTO);
 
             if (responseEstudio.IsSuccessStatusCode)
             {
                 var result = await responseEstudio.Content.ReadAsStringAsync();
                 Console.WriteLine("Resultado: " + result);
+                MessageBox.Show("Item generado con éxito!",  "Esaaaa", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                
+                mainFrame.NavigationService.GoBack();
             }
             else
             {
-                Console.WriteLine("Ha ocurrido un error con la llamada al endpoint 'urlEstudio'" + responseEstudio.StatusCode + " " + responseEstudio.Content.ReadAsStringAsync().Result);
+                Console.WriteLine("Ha ocurrido un error con la llamada al endpoint 'urlEstudio'" +
+                                  responseEstudio.StatusCode + " " +
+                                  responseEstudio.Content.ReadAsStringAsync().Result);
                 return;
             }
-            
-            string urlImagenes = "http://localhost:8080/api/imagenestudio/generar";
-            
-            var responseImagenes = await httpClient.PostAsJsonAsync(urlImagenes, imagenesEstudio);
 
-            if (responseImagenes.IsSuccessStatusCode)
+            if (!imagenesEstudio.Count.Equals(0))
             {
-                var result = await responseEstudio.Content.ReadAsStringAsync();
-                Console.WriteLine("Resultado: " + result);
-                MessageBox.Show("Registro generado con éxito!");
-                mainFrame.NavigationService.GoBack();
-            }else
-            {
-                Console.WriteLine("Ha ocurrido un error con la llamada al endpoint 'urlImagenes'" + responseImagenes.StatusCode + " " + responseImagenes.Content.ReadAsStringAsync().Result);
+                var urlImagenes = "http://localhost:8080/api/imagenestudio/generar";
+
+                var responseImagenes = await httpClient.PostAsJsonAsync(urlImagenes, imagenesEstudio);
+
+                if (responseImagenes.IsSuccessStatusCode)
+                {
+                    var result = await responseEstudio.Content.ReadAsStringAsync();
+                    Console.WriteLine("Resultado: " + result);
+                    MessageBox.Show("Registro generado con éxito!");
+                    mainFrame.NavigationService.GoBack();
+                }
+                else
+                {
+                    Console.WriteLine("Ha ocurrido un error con la llamada al endpoint 'urlImagenes'" +
+                                      responseImagenes.StatusCode + " " +
+                                      responseImagenes.Content.ReadAsStringAsync().Result);
+                }
             }
         }
         catch (Exception e)
@@ -91,38 +108,31 @@ public partial class PaginaCreacionItem : Page
 
     private void AgregarImagen(object sender, RoutedEventArgs routedEventArgs)
     {
-        OpenFileDialog openDialog = new OpenFileDialog();
+        var openDialog = new OpenFileDialog();
         openDialog.Filter = "Image files | *.jpg;*.jpeg;*.png;*.pdf";
         openDialog.FilterIndex = 1;
 
         if (openDialog.ShowDialog() == true)
-        {
-            imagenesEstudio.Add(new ImagenEstudioDTO(nombreEstudioTextbox.Text, documentoPaciente, fechaTextbox.Text,new BitmapImage(new Uri(openDialog.FileName)),openDialog.SafeFileName));
-        }
+            imagenesEstudio.Add(new ImagenEstudioDTO(nombreEstudioTextbox.Text, documentoPaciente, fechaTextbox.Text,
+                new BitmapImage(new Uri(openDialog.FileName)), openDialog.SafeFileName));
     }
-    
+
     private void FormatearTexto(object sender, TextChangedEventArgs e)
     {
         try
         {
-            string texto = fechaTextbox.Text;
+            var texto = fechaTextbox.Text;
 
             if (texto.Length == 2)
-            {
                 texto += "    ";
-            } else if (texto.Length == 8)
-            {
+            else if (texto.Length == 8)
                 texto += "    ";
-            }else if (texto.Length >= 8 && texto.Length < 12)
-            {
-                texto = texto.Substring(0,7);
-            }else if (texto.Length >= 2 && texto.Length < 6)
-            {
-                texto = texto.Substring(0,1);
-            }
+            else if (texto.Length >= 8 && texto.Length < 12)
+                texto = texto.Substring(0, 7);
+            else if (texto.Length >= 2 && texto.Length < 6) texto = texto.Substring(0, 1);
 
             fechaTextbox.Text = texto;
-            fechaTextbox.Select(fechaTextbox.Text.Length,0);
+            fechaTextbox.Select(fechaTextbox.Text.Length, 0);
         }
         catch (Exception ex)
         {
@@ -133,37 +143,31 @@ public partial class PaginaCreacionItem : Page
 
     private (bool?, string?) validarDatos(string? fecha, string? nombreEstudio)
     {
-
         if (fecha == null || fecha.Equals("") || nombreEstudio == null || nombreEstudio.Equals(""))
-        {
             return (false, "Registro inválido, los datos obligatorios (con asteriscos) deben contener un valor!");
-        }
-        
-        List<char> numerosEnTexto = ['1','2','3','4','5','6','7','8','9','0'];
-        foreach (char caracter in numerosEnTexto)
-        {
+
+        List<char> numerosEnTexto = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+        foreach (var caracter in numerosEnTexto)
             if (nombreEstudio.Contains(caracter))
                 return (false, "El nombre del estudio solo debe estar conformado por letras!");
-        }
-        
+
         fecha = FormatearFecha(fecha);
-        bool fechaValida = DateTime.TryParseExact(fecha, "dd/MM/yyyy", new CultureInfo("en-US"), DateTimeStyles.None, out DateTime dt);
+        var fechaValida = DateTime.TryParseExact(fecha, "dd/MM/yyyy", new CultureInfo("en-US"), DateTimeStyles.None,
+            out var dt);
         if (!fechaValida)
-        {
             return (false, "La fecha colocada es inválida. Coloque una fecha correcta! \n(con formato dd/MM/yyyy)");
-        }
 
         return (true, "");
     }
-    
+
     private string FormatearFecha(string texto)
     {
         if (texto.Length == 16)
         {
             texto = texto.Replace(" ", "");
-            texto = texto.Insert(2,"/").Insert(5,"/");
+            texto = texto.Insert(2, "/").Insert(5, "/");
         }
-            
+
         return texto;
     }
 

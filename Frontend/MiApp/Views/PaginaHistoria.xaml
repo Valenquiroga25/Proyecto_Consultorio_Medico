@@ -5,144 +5,182 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       mc:Ignorable="d"
       Title="PaginaHistoria" Background="#FFF9F2">
-    
+
     <Grid>
-        
+
         <!-- Loader mientras carga -->
-        <Border x:Name="LoaderPanel" Background="#FDF6EC">
-                
+        <Border x:Name="LoaderPanel" Background="#FDF6EC" />
+
+        <Border CornerRadius="5" Width="70" Height="50" BorderBrush="#DDD" BorderThickness="1" Margin="20,20,0,0"
+                HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button Click="Volver" Content="Volver" FontWeight="SemiBold" Foreground="#145A54" Cursor="Hand"
+                    BorderBrush="Transparent" BorderThickness="0" Background="Transparent" />
         </Border>
 
-        <Border CornerRadius="5" Width="70" Height="50" BorderBrush="#DDD" BorderThickness="1" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Button Click="Volver" Content="Volver" FontWeight="SemiBold" Foreground="#145A54" Cursor="Hand" BorderBrush="Transparent" BorderThickness="0" Background="Transparent"/>
-        </Border>
-        
         <Grid x:Name="PaginaDatos" VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="0,10,0,10">
             <Border CornerRadius="8" BorderBrush="#CCC" BorderThickness="1.5" Background="#FDF6EC">
                 <Grid HorizontalAlignment="Center">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="120" />
                     </Grid.RowDefinitions>
-                    
+
                     <Border BorderBrush="#145A54" BorderThickness="0,0,0,1.5">
                         <!--Grid para los datos del paciente-->
                         <Grid Margin="5,0,0,0">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            
+
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <WrapPanel Grid.Column="0" Grid.Row="0"  Margin="9,0,0,0">
-                                <TextBlock FontSize="25" Text="{Binding historia.nombres}" Foreground="#2C4B56" FontWeight="SemiBold" Margin="0,5,0,0" Padding="0,5,0,10"></TextBlock>
-                                <TextBlock FontSize="25" Text="{Binding historia.apellidos}" Foreground="#2C4B56" FontWeight="SemiBold" Margin="0,5,0,0" Padding="5,5,0,10"></TextBlock>
-                                <TextBlock FontSize="24" Text="(" Foreground="#2C4B56" FontWeight="SemiBold" Margin="0,5,0,0" Padding="10,6,0,0"></TextBlock>
-                                <TextBlock FontSize="24" Text="{Binding edadPaciente}" Foreground="#2C4B56" FontWeight="SemiBold" Margin="0,6,0,0" Padding="5,5,0,0"></TextBlock>
-                                <TextBlock FontSize="24" Text=" Años )" Foreground="#2C4B56" FontWeight="SemiBold" Margin="0,5,0,0" Padding="5,6,0,0"></TextBlock>
+                            <WrapPanel Grid.Column="0" Grid.Row="0" Margin="9,0,0,0">
+                                <TextBlock FontSize="25" Text="{Binding historia.nombres}" Foreground="#2C4B56"
+                                           FontWeight="SemiBold" Margin="0,5,0,0" Padding="0,5,0,10" />
+                                <TextBlock FontSize="25" Text="{Binding historia.apellidos}" Foreground="#2C4B56"
+                                           FontWeight="SemiBold" Margin="0,5,0,0" Padding="5,5,0,10" />
+                                <TextBlock FontSize="24" Text="(" Foreground="#2C4B56" FontWeight="SemiBold"
+                                           Margin="0,5,0,0" Padding="10,6,0,0" />
+                                <TextBlock FontSize="24" Text="{Binding edadPaciente}" Foreground="#2C4B56"
+                                           FontWeight="SemiBold" Margin="0,6,0,0" Padding="5,5,0,0" />
+                                <TextBlock FontSize="24" Text=" Años )" Foreground="#2C4B56" FontWeight="SemiBold"
+                                           Margin="0,5,0,0" Padding="5,6,0,0" />
                             </WrapPanel>
                             <WrapPanel Grid.Column="0" Grid.Row="1">
                                 <WrapPanel>
-                                    <TextBlock FontSize="15" Text="DNI: " Foreground="#2C4B56" FontWeight="SemiBold" Margin="5,0,0,10" Padding="6,0,0,10"/>
-                                    <TextBlock FontSize="15" Text="{Binding historia.documentoPaciente}" Foreground="#2C4B56" FontWeight="SemiBold" Margin="0,0,0,5" Padding="0,0,10,10"></TextBlock>
+                                    <TextBlock FontSize="15" Text="DNI: " Foreground="#2C4B56" FontWeight="SemiBold"
+                                               Margin="5,0,0,10" Padding="6,0,0,10" />
+                                    <TextBlock FontSize="15" Text="{Binding historia.documentoPaciente}"
+                                               Foreground="#2C4B56" FontWeight="SemiBold" Margin="0,0,0,5"
+                                               Padding="0,0,10,10" />
                                 </WrapPanel>
-                                <TextBlock FontSize="15" Foreground="#2C4B56" FontStyle="Italic" FontWeight="SemiBold" Margin="0,0,0,0">• </TextBlock>
+                                <TextBlock FontSize="15" Foreground="#2C4B56" FontStyle="Italic" FontWeight="SemiBold"
+                                           Margin="0,0,0,0">
+                                    •
+                                </TextBlock>
                                 <WrapPanel>
-                                    <TextBlock FontSize="15.2" Text="Tel: " Foreground="#2C4B56" FontWeight="SemiBold" Margin="0,0,0,5" Padding="10,0,0,10"/>
-                                    <TextBlock FontSize="15.2" Text="{Binding historia.codArea}" Foreground="#2C4B56" FontWeight="SemiBold" Padding="0,0,0,10"/>
-                                    <TextBlock FontSize="15.2" Text=" " Foreground="#2C4B56"  FontWeight="SemiBold" Padding="0,0,0,10"/>
-                                    <TextBlock FontSize="15.2" Text="{Binding historia.telefono}" Foreground="#2C4B56" FontWeight="SemiBold" Padding="0,0,0,10"/>
+                                    <TextBlock FontSize="15.2" Text="Tel: " Foreground="#2C4B56" FontWeight="SemiBold"
+                                               Margin="0,0,0,5" Padding="10,0,0,10" />
+                                    <TextBlock FontSize="15.2" Text="{Binding historia.codArea}" Foreground="#2C4B56"
+                                               FontWeight="SemiBold" Padding="0,0,0,10" />
+                                    <TextBlock FontSize="15.2" Text=" " Foreground="#2C4B56" FontWeight="SemiBold"
+                                               Padding="0,0,0,10" />
+                                    <TextBlock FontSize="15.2" Text="{Binding historia.telefono}" Foreground="#2C4B56"
+                                               FontWeight="SemiBold" Padding="0,0,0,10" />
                                 </WrapPanel>
                             </WrapPanel>
-                            
-                            <Border Grid.Row="0" Grid.Column="1" BorderThickness="1.5" BorderBrush="#DDD" Background="#FFF" CornerRadius="5" MinHeight="25" Height="30" HorizontalAlignment="Stretch" MinWidth="120" Width="130" Cursor="Hand">
-                                <Button Click="RedirigirDatosPaciente" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" Foreground="#2C4B56" FontWeight="SemiBold" FontSize="13">Ver Datos</Button>
-                            </Border> 
-     
+
+                            <Border Grid.Row="0" Grid.Column="1" BorderThickness="1.5" BorderBrush="#DDD"
+                                    Background="#FFF" CornerRadius="5" MinHeight="25" Height="30"
+                                    HorizontalAlignment="Stretch" MinWidth="120" Width="130" Cursor="Hand">
+                                <Button Click="RedirigirDatosPaciente" BorderBrush="Transparent" BorderThickness="0"
+                                        Background="Transparent" Foreground="#2C4B56" FontWeight="SemiBold"
+                                        FontSize="13">
+                                    Ver Datos
+                                </Button>
+                            </Border>
+
                         </Grid>
                     </Border>
-                    
-                    <Border Grid.Row="1" BorderBrush="#145A54" BorderThickness="0,0,0,1.5" Padding="10" Background="#FDF6EC">
-                        <TextBlock Text="Historia Clínica" TextAlignment="Center" FontSize="25" Foreground="#3A506B" FontWeight="SemiBold"/>
+
+                    <Border Grid.Row="1" BorderBrush="#145A54" BorderThickness="0,0,0,1.5" Padding="10"
+                            Background="#FDF6EC">
+                        <TextBlock Text="Historia Clínica" TextAlignment="Center" FontSize="25" Foreground="#3A506B"
+                                   FontWeight="SemiBold" />
                     </Border>
-                    
+
                     <Grid Grid.Row="2">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="50"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        
+
                         <Border Margin="5,5,0,0">
                             <WrapPanel>
                                 <Border Width="27" Height="27" Margin="5,0,0,0">
-                                        <Button Content="B" Background="LavenderBlush" Click="Bold_Click" Cursor="Hand"/>
+                                    <Button Content="B" Background="LavenderBlush" Click="Bold_Click" Cursor="Hand" />
                                 </Border>
                                 <Border Width="27" Height="27" Margin="5,0,0,0">
-                                    <Button Content="I" Background="LavenderBlush" Click="Italic_Click" Cursor="Hand"/>
+                                    <Button Content="I" Background="LavenderBlush" Click="Italic_Click" Cursor="Hand" />
                                 </Border>
                                 <Border Width="27" Height="27" Margin="5,0,0,0">
-                                    <Button Content="U" Background="LavenderBlush" Click="Underline_Click" Cursor="Hand"/>
+                                    <Button Content="U" Background="LavenderBlush" Click="Underline_Click"
+                                            Cursor="Hand" />
                                 </Border>
-                                
+
                                 <Border>
-                                    <ComboBox x:Name="FontSizeComboBox" Margin="10" Width="60" Cursor="Hand" SelectionChanged="FontSizeComboBox_SelectionChanged">
-                                        <ComboBoxItem Content="12"/>
-                                        <ComboBoxItem Content="14"/>
-                                        <ComboBoxItem Content="16"/>
-                                        <ComboBoxItem Content="18"/>
-                                        <ComboBoxItem Content="20"/>
+                                    <ComboBox x:Name="FontSizeComboBox" Margin="10" Width="60" Cursor="Hand"
+                                              SelectionChanged="FontSizeComboBox_SelectionChanged">
+                                        <ComboBoxItem Content="12" />
+                                        <ComboBoxItem Content="14" />
+                                        <ComboBoxItem Content="16" />
+                                        <ComboBoxItem Content="18" />
+                                        <ComboBoxItem Content="20" />
                                     </ComboBox>
                                 </Border>
                                 <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
                                     </Grid.RowDefinitions>
-                                    
+
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    
-                                    <Button Grid.Row="0" Grid.Column="0" x:Name="Black" Width="20" Height="20" Margin="1" Click="Color_Click" Background="Black" Cursor="Hand"/>
-                                    <Button Grid.Row="0" Grid.Column="1" x:Name="Red" Width="20" Height="20" Margin="1" Click="Color_Click" Background="Red" Cursor="Hand"/>
-                                    <Button Grid.Row="0" Grid.Column="2" x:Name="Blue" Width="20" Height="20" Margin="1" Click="Color_Click" Background="Blue" Cursor="Hand"/>
-                                    <Button Grid.Row="0" Grid.Column="3" x:Name="Green" Width="20" Height="20" Margin="1" Click="Color_Click" Background="Green" Cursor="Hand"/>
+
+                                    <Button Grid.Row="0" Grid.Column="0" x:Name="Black" Width="20" Height="20"
+                                            Margin="1" Click="Color_Click" Background="Black" Cursor="Hand" />
+                                    <Button Grid.Row="0" Grid.Column="1" x:Name="Red" Width="20" Height="20" Margin="1"
+                                            Click="Color_Click" Background="Red" Cursor="Hand" />
+                                    <Button Grid.Row="0" Grid.Column="2" x:Name="Blue" Width="20" Height="20"
+                                            Margin="1" Click="Color_Click" Background="Blue" Cursor="Hand" />
+                                    <Button Grid.Row="0" Grid.Column="3" x:Name="Green" Width="20" Height="20"
+                                            Margin="1" Click="Color_Click" Background="Green" Cursor="Hand" />
 
                                 </Grid>
                             </WrapPanel>
                         </Border>
-                        <Border Grid.Row="1" VerticalAlignment="Stretch" Width="850" BorderBrush="#145A54" BorderThickness="1.5" CornerRadius="5" Margin="5,0,5,0" Padding="10" Background="#FFF9F2">
+                        <Border Grid.Row="1" VerticalAlignment="Stretch" Width="850" BorderBrush="#145A54"
+                                BorderThickness="1.5" CornerRadius="5" Margin="5,0,5,0" Padding="10"
+                                Background="#FFF9F2">
                             <ScrollViewer VerticalScrollBarVisibility="Hidden">
                                 <!--'AcceptsReturn=True' hace que el textbox permita saltos de linea-->
                                 <!--'AcceptsTab=True' hace que el textbox permita sangrías-->
 
-                                <RichTextBox x:Name="Editor" BorderBrush="Transparent" BorderThickness="0" Background="Transparent" 
-                                         ScrollViewer.CanContentScroll="True"
-                                         AcceptsReturn="True"
-                                         AcceptsTab="True" 
-                                         FontFamily="Baufra"
-                                         FontSize="16"
-                                />
+                                <RichTextBox x:Name="Editor" BorderBrush="Transparent" BorderThickness="0"
+                                             Background="Transparent"
+                                             ScrollViewer.CanContentScroll="True"
+                                             AcceptsReturn="True"
+                                             AcceptsTab="True"
+                                             FontFamily="Baufra"
+                                             FontSize="16" />
                             </ScrollViewer>
                         </Border>
                     </Grid>
-                    
+
                     <WrapPanel Grid.Row="3" Margin="5,15,20,5" HorizontalAlignment="Right">
-                        <Border BorderBrush="#145A54" Margin="0,0,15,0" BorderThickness="1.5" CornerRadius="2" Width="120" Height="Auto" Background="#FFF9F2">
-                            <Button Content="Ver Estudios" Click="RedirigirPaginaEstudios" HorizontalContentAlignment="Center" Foreground="#2C4B56" FontSize="14" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand" Width="120" Height="28" Background="Transparent"/>
+                        <Border BorderBrush="#145A54" Margin="0,0,15,0" BorderThickness="1.5" CornerRadius="2"
+                                Width="120" Height="Auto" Background="#FFF9F2">
+                            <Button Content="Ver Estudios" Click="RedirigirPaginaEstudios"
+                                    HorizontalContentAlignment="Center" Foreground="#2C4B56" FontSize="14"
+                                    FontWeight="SemiBold" BorderThickness="0" Cursor="Hand" Width="120" Height="28"
+                                    Background="Transparent" />
                         </Border>
-                        
-                        <Border BorderBrush="#145A54" BorderThickness="1.5" CornerRadius="2" Width="120" Height="Auto" Background="#FFF9F2">
-                            <Button Content="Guardar" Click="GuardarCambiosHistoria" Foreground="#2C4B56" FontSize="14" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand" Width="120" Height="28" Background="Transparent"/>
+
+                        <Border BorderBrush="#145A54" BorderThickness="1.5" CornerRadius="2" Width="120" Height="Auto"
+                                Background="#FFF9F2">
+                            <Button Content="Guardar" Click="GuardarCambiosHistoria" Foreground="#2C4B56" FontSize="14"
+                                    FontWeight="SemiBold" BorderThickness="0" Cursor="Hand" Width="120" Height="28"
+                                    Background="Transparent" />
                         </Border>
                     </WrapPanel>
                 </Grid>

@@ -9,19 +9,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Page Update="MiApp\Views\MainWindow.xaml">
-        <Generator>MSBuild:Compile</Generator>
-        <XamlRuntime>Wpf</XamlRuntime>
-        <SubType>Designer</SubType>
-      </Page>
+        <Page Update="MiApp\Views\MainWindow.xaml">
+            <Generator>MSBuild:Compile</Generator>
+            <XamlRuntime>Wpf</XamlRuntime>
+            <SubType>Designer</SubType>
+        </Page>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="MiApp\Assets\" />
+        <Folder Include="MiApp\Assets\"/>
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Extended.Wpf.Toolkit" Version="4.7.25104.5739" />
+        <PackageReference Include="Extended.Wpf.Toolkit" Version="4.7.25104.5739"/>
     </ItemGroup>
 
 </Project>

@@ -1,17 +1,17 @@
 using System.Collections.ObjectModel;
 using System.Globalization;
-using System.Windows;
-using System.Windows.Controls;
 using System.Net.Http;
 using System.Text.Json;
+using System.Windows;
+using System.Windows.Controls;
 using ProyectoTurnos_FrontEnd.MiApp.Models;
 
 namespace ProyectoTurnos_FrontEnd.MiApp.Views;
 
 public partial class PaginaPrincipal : Page
 {
-    private Frame mainFrame;
-    public ObservableCollection<HistoriaDTO> historias { get; set; } = new ObservableCollection<HistoriaDTO>();
+    private readonly Frame mainFrame;
+    public ObservableCollection<HistoriaDTO> historias { get; set; } = new();
 
     public PaginaPrincipal(Frame MainFrame, string nombreUsuario)
     {
@@ -22,42 +22,43 @@ public partial class PaginaPrincipal : Page
         Loaded += PaginaLoaded;
     }
 
-    private void OnClick(Object sender, RoutedEventArgs e)
+
+    private void OnClick(object sender, RoutedEventArgs e)
     {
-        string? nombreBoton = sender.ToString();
+        var nombreBoton = sender.ToString();
 
         // Siempre al chequear el contenido de los botones tienen que ir de nombres más cortos a más largos!
         if (nombreBoton.Substring(32, 16).Equals("Agenda de Turnos"))
         {
-            MessageBox.Show("Esta funcionalidad estará disponible proximamente!", "Proximamente", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Esta funcionalidad estará disponible proximamente!", "Proximamente", MessageBoxButton.OK,
+                MessageBoxImage.Information);
             return;
         }
-        
+
         if (nombreBoton.Substring(32, 24).Equals("Generar Historia Clínica"))
             mainFrame.Navigate(new CreacionHistoria(mainFrame));
     }
-    
+
     public async Task GetHistoriasClinicas()
     {
         try
         {
-            HttpClient httpClient = new HttpClient();
-            string url = "http://localhost:8080/api/historia/listar";
+            var httpClient = new HttpClient();
+            var url = "http://localhost:8080/api/historia/listar";
 
             var response = await httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
                 var result = await response.Content.ReadAsStringAsync();
-                
-                List<HistoriaDTO>? historiasList = JsonSerializer.Deserialize<List<HistoriaDTO>>(result); // Convierte cada objeto de json en objeto de C#
-                
+
+                var historiasList =
+                    JsonSerializer
+                        .Deserialize<List<HistoriaDTO>>(result); // Convierte cada objeto de json en objeto de C#
+
                 historias.Clear();
-                
-                foreach (HistoriaDTO historia in historiasList)
-                {
-                    historias.Add(historia);
-                }
+
+                foreach (var historia in historiasList) historias.Add(historia);
             }
         }
         catch (Exception e)
@@ -67,35 +68,34 @@ public partial class PaginaPrincipal : Page
             throw;
         }
     }
-    
+
     public void GetHistoriasFiltradas(object sender, TextChangedEventArgs args)
     {
         try
         {
-            string contenidoFiltro = Filtro.Text.Trim();
+            var contenidoFiltro = Filtro.Text.Trim();
 
             ListaHistorias.Visibility = Visibility.Visible;
             if (!string.IsNullOrEmpty(contenidoFiltro))
             {
-                List<char> numerosEnTexto = ['1','2','3','4','5','6','7','8','9','0'];
-                bool contieneNumero = false;
-            
-                foreach (char caracter in numerosEnTexto)
-                {
-                    if (contenidoFiltro.Contains(caracter)) 
+                List<char> numerosEnTexto = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+                var contieneNumero = false;
+
+                foreach (var caracter in numerosEnTexto)
+                    if (contenidoFiltro.Contains(caracter))
                         contieneNumero = true;
-                }
 
                 if (contieneNumero)
                 {
                     var historiasFiltradas = historias.Where(his => his.documentoPaciente.Contains(contenidoFiltro));
-                    TablaHistorias.ItemsSource = new ObservableCollection<HistoriaDTO>(historiasFiltradas);  
+                    TablaHistorias.ItemsSource = new ObservableCollection<HistoriaDTO>(historiasFiltradas);
                 }
                 else
                 {
-                    string capitalizado = Capitalizar(contenidoFiltro);
-                    var historiasFiltradas = historias.Where(his => his.apellidos.Contains(capitalizado) || his.nombres.Contains(capitalizado));
-                    TablaHistorias.ItemsSource = new ObservableCollection<HistoriaDTO>(historiasFiltradas);  
+                    var capitalizado = Capitalizar(contenidoFiltro);
+                    var historiasFiltradas = historias.Where(his =>
+                        his.apellidos.Contains(capitalizado) || his.nombres.Contains(capitalizado));
+                    TablaHistorias.ItemsSource = new ObservableCollection<HistoriaDTO>(historiasFiltradas);
                 }
             }
             else
@@ -130,12 +130,12 @@ public partial class PaginaPrincipal : Page
             }
         }
     }
-    
+
     private async void PaginaLoaded(object sender, RoutedEventArgs e)
     {
         await GetHistoriasClinicas();
     }
-    
+
     private string Capitalizar(string texto)
     {
         return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(texto.ToLower());

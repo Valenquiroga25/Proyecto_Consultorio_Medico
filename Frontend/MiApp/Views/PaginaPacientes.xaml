@@ -8,59 +8,79 @@
 
     <Grid HorizontalAlignment="Center" Margin="0,50,0,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="120"/>   <!--Filtro-->
-            <RowDefinition Height="40"/>    <!-- Encabezado -->
-            <RowDefinition Height="*"/>     <!-- Tabla dinamica -->
+            <RowDefinition Height="120" />   <!--Filtro-->
+            <RowDefinition Height="40" />    <!-- Encabezado -->
+            <RowDefinition Height="*" />     <!-- Tabla dinamica -->
         </Grid.RowDefinitions>
-        
+
         <WrapPanel Height="40">
             <Label FontSize="15" Foreground="#2C4B56" FontWeight="SemiBold" Margin="27,5,0,0">Documento paciente: </Label>
 
             <Border CornerRadius="8" BorderBrush="#DDD" BorderThickness="1" Margin="0,5,20,0" Padding="8,5,5,5">
-                <TextBox x:Name="Filtro" MinWidth="150" Height="30" FontSize="14" FontWeight="SemiBold" Background="Transparent" BorderThickness="0"/>
+                <TextBox x:Name="Filtro" MinWidth="150" Height="30" FontSize="14" FontWeight="SemiBold"
+                         Background="Transparent" BorderThickness="0" />
             </Border>
         </WrapPanel>
-        
+
         <Grid Grid.Row="1" Height="25" x:Name="Headers">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="210"/>
-                <ColumnDefinition Width="180"/>
-                <ColumnDefinition Width="230"/>
-                <ColumnDefinition Width="180"/>
-                <ColumnDefinition Width="180"/>
-                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="210" />
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="230" />
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="180" />
+                <ColumnDefinition Width="180" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Nombre Completo" FontSize="19" Foreground="#2C4B56" FontWeight="Bold" VerticalAlignment="Center" Margin="35,0,0,0" Grid.Column="0" />
-            <TextBlock Text="Documento" FontSize="19" Foreground="#2C4B56" FontWeight="Bold" VerticalAlignment="Center" Margin="65,0,0,0" Grid.Column="1" />
-            <TextBlock Text="Fecha Nacimiento" FontSize="19" Foreground="#2C4B56" FontWeight="Bold" VerticalAlignment="Center" Margin="65,0,0,0" Grid.Column="2" />
-            <TextBlock Text="Obra Social" FontSize="19" Foreground="#2C4B56" FontWeight="Bold" VerticalAlignment="Center" Margin="65,0,0,0" Grid.Column="3" />
-            <TextBlock Text="Teléfono" FontSize="19" Foreground="#2C4B56" FontWeight="Bold" VerticalAlignment="Center" Margin="75,0,0,0" Grid.Column="4" />
-            <TextBlock Text="Dirección" FontSize="19" Foreground="#2C4B56" FontWeight="Bold" VerticalAlignment="Center" Margin="70,0,0,0" Grid.Column="5" />
+            <TextBlock Text="Nombre Completo" FontSize="19" Foreground="#2C4B56" FontWeight="Bold"
+                       VerticalAlignment="Center" Margin="35,0,0,0" Grid.Column="0" />
+            <TextBlock Text="Documento" FontSize="19" Foreground="#2C4B56" FontWeight="Bold" VerticalAlignment="Center"
+                       Margin="65,0,0,0" Grid.Column="1" />
+            <TextBlock Text="Fecha Nacimiento" FontSize="19" Foreground="#2C4B56" FontWeight="Bold"
+                       VerticalAlignment="Center" Margin="65,0,0,0" Grid.Column="2" />
+            <TextBlock Text="Obra Social" FontSize="19" Foreground="#2C4B56" FontWeight="Bold"
+                       VerticalAlignment="Center" Margin="65,0,0,0" Grid.Column="3" />
+            <TextBlock Text="Teléfono" FontSize="19" Foreground="#2C4B56" FontWeight="Bold" VerticalAlignment="Center"
+                       Margin="75,0,0,0" Grid.Column="4" />
+            <TextBlock Text="Dirección" FontSize="19" Foreground="#2C4B56" FontWeight="Bold" VerticalAlignment="Center"
+                       Margin="70,0,0,0" Grid.Column="5" />
         </Grid>
-        
+
         <ItemsControl Grid.Row="2" x:Name="TablaPacientes" ItemsSource="pacientes">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="#DDD" BorderThickness="0 0 0 1" Padding="5">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="230"/>
-                                <ColumnDefinition Width="180"/>
-                                <ColumnDefinition Width="230"/>
-                                <ColumnDefinition Width="180"/>
-                                <ColumnDefinition Width="180"/>
-                                <ColumnDefinition Width="180"/>
+                                <ColumnDefinition Width="230" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="230" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="180" />
+                                <ColumnDefinition Width="180" />
                             </Grid.ColumnDefinitions>
-                            
-                            <TextBlock TextAlignment="Center" Text="{Binding nombreCompleto}" FontSize="15" Foreground="#566573" VerticalAlignment="Center"  FontWeight="SemiBold" Grid.Column="0"></TextBlock>
-                            <TextBlock TextAlignment="Center" Text="{Binding documento}" FontSize="15" Foreground="#566573" VerticalAlignment="Center"  FontWeight="SemiBold" Grid.Column="1"></TextBlock>
-                            <TextBlock TextAlignment="Center" Text="{Binding fechaNacimiento, StringFormat='{}{0:dd/MM/yyyy}'}" FontSize="15" Foreground="#566573" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Column="2"></TextBlock>
-                            <TextBlock TextAlignment="Center" Text="{Binding obraSocial}" FontSize="15" Foreground="#566573" VerticalAlignment="Center"  FontWeight="SemiBold" Grid.Column="3"></TextBlock>
-                            <TextBlock TextAlignment="Center" Text="{Binding telefono}" FontSize="15" Foreground="#566573" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Column="4"></TextBlock>
-                            <TextBlock TextAlignment="Center" Text="{Binding direccion}" FontSize="15" Foreground="#566573" VerticalAlignment="Center" FontWeight="SemiBold" Grid.Column="5"></TextBlock>
+
+                            <TextBlock TextAlignment="Center" Text="{Binding nombreCompleto}" FontSize="15"
+                                       Foreground="#566573" VerticalAlignment="Center" FontWeight="SemiBold"
+                                       Grid.Column="0" />
+                            <TextBlock TextAlignment="Center" Text="{Binding documento}" FontSize="15"
+                                       Foreground="#566573" VerticalAlignment="Center" FontWeight="SemiBold"
+                                       Grid.Column="1" />
+                            <TextBlock TextAlignment="Center"
+                                       Text="{Binding fechaNacimiento, StringFormat='{}{0:dd/MM/yyyy}'}" FontSize="15"
+                                       Foreground="#566573" VerticalAlignment="Center" FontWeight="SemiBold"
+                                       Grid.Column="2" />
+                            <TextBlock TextAlignment="Center" Text="{Binding obraSocial}" FontSize="15"
+                                       Foreground="#566573" VerticalAlignment="Center" FontWeight="SemiBold"
+                                       Grid.Column="3" />
+                            <TextBlock TextAlignment="Center" Text="{Binding telefono}" FontSize="15"
+                                       Foreground="#566573" VerticalAlignment="Center" FontWeight="SemiBold"
+                                       Grid.Column="4" />
+                            <TextBlock TextAlignment="Center" Text="{Binding direccion}" FontSize="15"
+                                       Foreground="#566573" VerticalAlignment="Center" FontWeight="SemiBold"
+                                       Grid.Column="5" />
                         </Grid>
-                   </Border> 
+                    </Border>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>

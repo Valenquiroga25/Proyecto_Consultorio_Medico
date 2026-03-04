@@ -9,6 +9,6 @@
     <Grid>
         <!--Se generó la clase MainWindow para agregar acá el Frame, que es quien nos permite navegar entre páginas-->
         <!--Es la única función de la clase, se hizo de esta manera para que la navegacion no sea en base a cierres y aperturas de ventanas.-->
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" />
     </Grid>
 </Window>

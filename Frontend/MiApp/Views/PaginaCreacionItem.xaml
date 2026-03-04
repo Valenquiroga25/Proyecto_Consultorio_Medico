@@ -3,103 +3,138 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="clr-namespace:ProyectoTurnos_FrontEnd.MiApp.Views"
       mc:Ignorable="d"
       Title="PaginaCreacionItem">
-    
+
     <Grid>
-        
+
         <!-- Loader mientras carga -->
-        <Border x:Name="LoaderPanel" Background="#FDF6EC">
-                
+        <Border x:Name="LoaderPanel" Background="#FDF6EC" />
+
+        <Border CornerRadius="5" Width="70" Height="50" BorderBrush="#DDD" BorderThickness="1" Margin="20,20,0,0"
+                HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Button Click="Volver" Content="Volver" FontWeight="SemiBold" Foreground="#145A54" Cursor="Hand"
+                    BorderBrush="Transparent" BorderThickness="0" Background="Transparent" />
         </Border>
 
-        <Border CornerRadius="5" Width="70" Height="50" BorderBrush="#DDD" BorderThickness="1" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Button Click="Volver" Content="Volver" FontWeight="SemiBold" Foreground="#145A54" Cursor="Hand" BorderBrush="Transparent" BorderThickness="0" Background="Transparent"/>
-        </Border>
-        
-        <Grid x:Name="PaginaDatos" Width="650" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,10,0,10">
+        <Grid x:Name="PaginaDatos" Width="650" VerticalAlignment="Center" HorizontalAlignment="Center"
+              Margin="0,10,0,10">
             <Border CornerRadius="8" BorderBrush="#CCC" Padding="10" BorderThickness="1.5" Background="#FEFEF0">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    
+
                     <StackPanel Grid.Row="0" Margin="0,0,0,10">
                         <Border>
-                            <TextBlock 
+                            <TextBlock
                                 FontSize="28"
                                 FontWeight="SemiBold"
                                 FontFamily="Segoe UI"
                                 Foreground="#2C4B56"
                                 Margin="0,35,0,0"
                                 HorizontalAlignment="Center"
-                                TextAlignment="Center">Generar Registro
+                                TextAlignment="Center">
+                                Generar Registro
                                 <TextBlock.Effect>
                                     <DropShadowEffect Color="#FEFEFE" BlurRadius="5" ShadowDepth="2" Opacity="0.5" />
                                 </TextBlock.Effect>
                             </TextBlock>
                         </Border>
                     </StackPanel>
-                    
+
                     <StackPanel Grid.Row="1">
                         <WrapPanel Width="500">
-                            <Label FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#7BAF9E" Margin="0,10,0,0">Fecha</Label>
-                            <Label VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#2C4B56" Margin="0,0,0,0">*</Label>
+                            <Label FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#7BAF9E"
+                                   Margin="0,10,0,0">
+                                Fecha
+                            </Label>
+                            <Label VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold"
+                                   Foreground="#2C4B56" Margin="0,0,0,0">
+                                *
+                            </Label>
                         </WrapPanel>
                         <Grid Width="500">
-                            <Border MinWidth="400" Height="40" CornerRadius="8" BorderBrush="DarkGray" BorderThickness="2" Background="#FEFEFE">
-                                <TextBox x:Name="fechaTextbox" MaxLength="16" TextChanged="FormatearTexto" Padding="10,7,10,10" Background="Transparent" BorderThickness="0" FontSize="15" FontWeight="Medium"/>
+                            <Border MinWidth="400" Height="40" CornerRadius="8" BorderBrush="DarkGray"
+                                    BorderThickness="2" Background="#FEFEFE">
+                                <TextBox x:Name="fechaTextbox" MaxLength="16" TextChanged="FormatearTexto"
+                                         Padding="10,7,10,10" Background="Transparent" BorderThickness="0"
+                                         FontSize="15" FontWeight="Medium" />
                             </Border>
-                            <TextBlock Padding="10,7,10,10" Margin="25,0,0,0" IsHitTestVisible="False" Background="Transparent" FontSize="17" FontWeight="Medium">  /</TextBlock>
-                            <TextBlock Padding="10,7,10,10" Margin="55,0,0,0" IsHitTestVisible="False" Background="Transparent" FontSize="17" FontWeight="Medium">  /</TextBlock>
+                            <TextBlock Padding="10,7,10,10" Margin="25,0,0,0" IsHitTestVisible="False"
+                                       Background="Transparent" FontSize="17" FontWeight="Medium">
+                                /
+                            </TextBlock>
+                            <TextBlock Padding="10,7,10,10" Margin="55,0,0,0" IsHitTestVisible="False"
+                                       Background="Transparent" FontSize="17" FontWeight="Medium">
+                                /
+                            </TextBlock>
                         </Grid>
-                
+
                         <WrapPanel Width="500">
-                            <Label FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#7BAF9E" Margin="0,10,0,0">Nombre Estudio</Label>
-                            <Label VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#2C4B56" Margin="0,0,0,0">*</Label>
+                            <Label FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold" Foreground="#7BAF9E"
+                                   Margin="0,10,0,0">
+                                Nombre Estudio
+                            </Label>
+                            <Label VerticalAlignment="Bottom" FontSize="16" FontFamily="Segoe UI" FontWeight="SemiBold"
+                                   Foreground="#2C4B56" Margin="0,0,0,0">
+                                *
+                            </Label>
                         </WrapPanel>
                         <Grid>
-                            <Border MinWidth="400" Width="500" Height="40" CornerRadius="8" BorderBrush="DarkGray" BorderThickness="2" Background="#FEFEFE">
-                                <TextBox x:Name="nombreEstudioTextbox" Padding="10,7,10,10" Background="Transparent" BorderThickness="0" FontSize="15" FontWeight="Medium"/>
+                            <Border MinWidth="400" Width="500" Height="40" CornerRadius="8" BorderBrush="DarkGray"
+                                    BorderThickness="2" Background="#FEFEFE">
+                                <TextBox x:Name="nombreEstudioTextbox" Padding="10,7,10,10" Background="Transparent"
+                                         BorderThickness="0" FontSize="15" FontWeight="Medium" />
                             </Border>
                         </Grid>
                     </StackPanel>
-                    
+
                     <Grid Grid.Row="2" Margin="0,25,0,0">
-                        <Border BorderBrush="#145A54" BorderThickness="1.5" CornerRadius="5" Margin="3" Height="110" Padding="5">
+                        <Border BorderBrush="#145A54" BorderThickness="1.5" CornerRadius="5" Margin="3" Height="110"
+                                Padding="5">
                             <WrapPanel VerticalAlignment="Center">
-                                <ListView x:Name="ImagenesEstudio" ItemsSource="{Binding imagenesEstudio}" Padding="10,0,0,0" HorizontalAlignment="Stretch" BorderThickness="0" Background="Transparent">
+                                <ListView x:Name="ImagenesEstudio" ItemsSource="{Binding imagenesEstudio}"
+                                          Padding="10,0,0,0" HorizontalAlignment="Stretch" BorderThickness="0"
+                                          Background="Transparent">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
-                                            <StackPanel Orientation="Horizontal"/>
+                                            <StackPanel Orientation="Horizontal" />
                                         </ItemsPanelTemplate>
                                     </ItemsControl.ItemsPanel>
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <Button Cursor="Hand" Background="Transparent" BorderThickness="0">
                                                 <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                                                    <Image Source="{Binding imagen}" Width="70" Height="70" HorizontalAlignment="Stretch"/>
-                                                    <TextBlock Text="{Binding titulo}" FontWeight="Medium" Foreground="#145A54" HorizontalAlignment="Stretch" Margin="0,3,0,0"/>
+                                                    <Image Source="{Binding imagen}" Width="70" Height="70"
+                                                           HorizontalAlignment="Stretch" />
+                                                    <TextBlock Text="{Binding titulo}" FontWeight="Medium"
+                                                               Foreground="#145A54" HorizontalAlignment="Stretch"
+                                                               Margin="0,3,0,0" />
                                                 </StackPanel>
                                             </Button>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>
                                 </ListView>
-                    
-                                <Border Width="50" Height="50" BorderBrush="#145A54" Background="Transparent" BorderThickness="1.5" CornerRadius="5" Margin="10,3,3,3">
-                                    <Button Width="48" Height="48" Click="AgregarImagen" Cursor="Hand" Background="Transparent" BorderThickness="0"/>
+
+                                <Border Width="50" Height="50" BorderBrush="#145A54" Background="Transparent"
+                                        BorderThickness="1.5" CornerRadius="5" Margin="10,3,3,3">
+                                    <Button Width="48" Height="48" Click="AgregarImagen" Cursor="Hand"
+                                            Background="Transparent" BorderThickness="0" />
                                 </Border>
                             </WrapPanel>
                         </Border>
                     </Grid>
-                    
+
                     <StackPanel Grid.Row="3">
-                        <Border BorderBrush="#145A54" HorizontalAlignment="Right" Margin="5,25,5,20" BorderThickness="1.5" CornerRadius="2" Width="120" Height="Auto" Background="LightGray">
-                            <Button Content="Generar registro" Click="CrearRegistro" Foreground="#2C4B56" FontSize="14" FontWeight="SemiBold" BorderThickness="0" Cursor="Hand" Width="120" Height="28" Background="Transparent"/>
+                        <Border BorderBrush="#145A54" HorizontalAlignment="Right" Margin="5,25,5,20"
+                                BorderThickness="1.5" CornerRadius="2" Width="120" Height="Auto" Background="LightGray">
+                            <Button Content="Generar registro" Click="CrearRegistro" Foreground="#2C4B56" FontSize="14"
+                                    FontWeight="SemiBold" BorderThickness="0" Cursor="Hand" Width="120" Height="28"
+                                    Background="Transparent" />
                         </Border>
                     </StackPanel>
                 </Grid>
@@ -107,5 +142,5 @@
         </Grid>
 
     </Grid>
-    
+
 </Page>

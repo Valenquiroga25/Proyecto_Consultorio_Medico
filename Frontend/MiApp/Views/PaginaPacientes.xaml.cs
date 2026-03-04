@@ -9,16 +9,17 @@ namespace ProyectoTurnos_FrontEnd.MiApp.Views;
 
 public partial class PaginaPacientes : Page
 {
-    private Frame mainFrame;
-    
     //Se utiliza 'ObservableCollection' porque notifica a la interfaz gráfica (UI)
     //cuando cambia (se agregan, eliminan o modifican elementos), la lista normal no.
-    private ObservableCollection<PacienteDTO> pacientes = new ObservableCollection<PacienteDTO>();
+    private readonly ObservableCollection<PacienteDTO> pacientes = new();
+    private Frame mainFrame;
+
     public PaginaPacientes(Frame MainFrame)
     {
         InitializeComponent();
         mainFrame = MainFrame;
-        TablaPacientes.ItemsSource = pacientes; // Se inicializa por única vez el recurso de la tabla apenas se renderiza la página.
+        TablaPacientes.ItemsSource =
+            pacientes; // Se inicializa por única vez el recurso de la tabla apenas se renderiza la página.
         Loaded += PaginaLoaded;
     }
 
@@ -26,8 +27,8 @@ public partial class PaginaPacientes : Page
     {
         try
         {
-            HttpClient httpClient = new HttpClient();
-            string url = "http://localhost:8080/api/paciente/listar";
+            var httpClient = new HttpClient();
+            var url = "http://localhost:8080/api/paciente/listar";
 
             var response = await httpClient.GetAsync(url); // Agarra la respuesta http.
 
@@ -42,10 +43,10 @@ public partial class PaginaPacientes : Page
                 var pacientesList = JsonSerializer.Deserialize<List<PacienteDTO>>(result);
                 pacientes.Clear();
 
-                foreach (var paciente in pacientesList) // Se agrgan los pacientes actuales en la lista por cada vez que se refresca la página.
-                {
-                    pacientes.Add(paciente); // Se agrgan los pacientes actuales en la lista por cada vez que se refresca la página.
-                }
+                foreach (var paciente in
+                         pacientesList) // Se agrgan los pacientes actuales en la lista por cada vez que se refresca la página.
+                    pacientes.Add(
+                        paciente); // Se agrgan los pacientes actuales en la lista por cada vez que se refresca la página.
             }
         }
         catch (Exception e)
@@ -64,12 +65,12 @@ public partial class PaginaPacientes : Page
     {
         try
         {
-            string contenidoFiltro = Filtro.Text.Trim();
-            
+            var contenidoFiltro = Filtro.Text.Trim();
+
             if (!string.IsNullOrEmpty(contenidoFiltro))
             {
                 var pacientesFiltrados = pacientes.Where(pac => pac.nombreCompleto.Contains(contenidoFiltro));
-                
+
                 TablaPacientes.ItemsSource = new ObservableCollection<PacienteDTO>(pacientesFiltrados);
             }
             else

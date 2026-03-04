@@ -5,19 +5,19 @@ namespace ProyectoTurnos_FrontEnd.MiApp.Views;
 
 public partial class PaginaEstudios : Page
 {
-    private Frame mainFrame;
-    
+    private readonly Frame mainFrame;
+
     public PaginaEstudios(Frame mainFrame)
     {
         InitializeComponent();
         this.mainFrame = mainFrame;
     }
-    
+
     private void Volver(object sender, RoutedEventArgs routedEventArgs)
     {
         mainFrame.NavigationService.GoBack();
     }
-    
+
     /*
     public void AgregarImagen(object sender, RoutedEventArgs e)
     {
@@ -29,7 +29,7 @@ public partial class PaginaEstudios : Page
 
             if (openDialog.ShowDialog() == true)
             {
-                
+
                 if (!File.Exists(openDialog.FileName))
                 {
                     MessageBox.Show("El archivo no existe.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
