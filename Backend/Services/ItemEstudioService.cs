@@ -44,7 +44,7 @@ public class ItemEstudioService : IItemEstudioService
         try
         {
             ItemEstudio? itemBuscado = BuscarItemByHistoriaYFecha(itemEstudio.documentoPaciente,itemEstudio.fecha);
-
+ 
             if (itemBuscado == null)
             {
                 Console.WriteLine("No existe un item con la fecha: " + itemEstudio.fecha);
@@ -63,15 +63,30 @@ public class ItemEstudioService : IItemEstudioService
         }
     }
 
-    public List<ItemEstudio> ListarItemsByHistoria(ItemEstudio itemEstudio)
+    public List<ItemEstudio> ListarItemsByHistoria(String documentoPaciente)
     {
         try
         {
-            return context.ItemEstudio.Where(i => i.documentoPaciente == itemEstudio.documentoPaciente).ToList();
+            return context.ItemEstudio.Where(i => i.documentoPaciente == documentoPaciente).ToList();
         }
         catch (Exception e)
         {
             Console.WriteLine("Ha ocurrido un error al buscar el item del estudio por fecha: " + e.Message);
+            throw;
+        }
+    }
+
+    public void AgregarEstudio(Estudio estudio)
+    {
+        try
+        {
+            ItemEstudio? item = BuscarItemByHistoriaYFecha(estudio.documentoPaciente, estudio.fecha);
+            item.estudios.Add(estudio);
+            Console.WriteLine("Estudio agregado a la lista del item!");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Hubo un error al agregar el estudio en el item del dia " + estudio.fecha + ": " + e.Message);
             throw;
         }
     }

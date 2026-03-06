@@ -8,15 +8,12 @@ public class Estudio
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int idEstudio { get; set; }
     
-    [Key]
     [Required]
     public string nombre { get; set; }
     
-    [Key]
     [Required]
     public string documentoPaciente { get; set; }
     
-    [Key]
     [Required]
     public DateTime fecha { get; set; }
     

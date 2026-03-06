@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Valen\\Documents\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\ProyectoTurnos.csproj": {}
+    "C:\\Users\\Valen\\OneDrive\\Documentos\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\ProyectoTurnos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Valen\\Documents\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\ProyectoTurnos.csproj": {
+    "C:\\Users\\Valen\\OneDrive\\Documentos\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\ProyectoTurnos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Valen\\Documents\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\ProyectoTurnos.csproj",
+        "projectUniqueName": "C:\\Users\\Valen\\OneDrive\\Documentos\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\ProyectoTurnos.csproj",
         "projectName": "ProyectoTurnos",
-        "projectPath": "C:\\Users\\Valen\\Documents\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\ProyectoTurnos.csproj",
+        "projectPath": "C:\\Users\\Valen\\OneDrive\\Documentos\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\ProyectoTurnos.csproj",
         "packagesPath": "C:\\Users\\Valen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Valen\\Documents\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\Valen\\OneDrive\\Documentos\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Valen\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -43,6 +43,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[8.0.2, )"
@@ -55,7 +59,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.0-preview.2.25163.8, )"
+              "version": "[10.0.0-rc.1.25451.107, )"
             },
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
@@ -64,6 +68,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[8.0.1, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             },
             "System.ServiceModel.Primitives": {
               "target": "Package",

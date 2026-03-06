@@ -6,9 +6,11 @@ internal class Program
 {
     public static void Main(string[] args)
     {
-        var builder = WebApplication.CreateBuilder(args); // Se crea la aplicacion y se le agrega el contexto, es decir la conexion a la BD.
+        var builder = WebApplication.CreateBuilder(args); // Se crea la aplicacion
+        
+        // Se agrega la BD (el contexto). Se especifica que la BD debe ser MySQL y se debe utilizar el connection string "Default" de appsettings
         builder.Services.AddDbContext<Context>(options =>
-        options.UseSqlServer(builder.Configuration.GetConnectionString("Default") ?? throw new InvalidOperationException("Connection string 'Default' not found.")));
+        options.UseMySql(builder.Configuration.GetConnectionString("Default") ?? throw new InvalidOperationException("Connection string 'Default' not found."),ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("Default"))));
         
         // Esto basicamente agrega las entidades al contenedor de Entity Framework para la inyeccion de dependencias.
         

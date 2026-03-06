@@ -4,11 +4,11 @@ public class EstudioDTO
 {
     public string nombre { get; set; }
     public string documentoPaciente { get; set; }
-    public DateTime fecha { get; set; }
+    public string fecha { get; set; }
     
     public EstudioDTO(){}
 
-    public EstudioDTO(string nombre, string documentoPaciente, DateTime fecha)
+    public EstudioDTO(string nombre, string documentoPaciente, string fecha)
     {
         this.nombre = nombre;
         this.documentoPaciente = documentoPaciente;

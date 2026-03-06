@@ -11,7 +11,6 @@ public class Context : DbContext
     public DbSet<Historia> Historia { get; set; } = default!;
     public DbSet<ItemEstudio> ItemEstudio { get; set; } = default!;
     public DbSet<Estudio> Estudio { get; set; } = default!;
-
     public DbSet<ImagenEstudio> ImagenEstudio { get; set; } = default!;
     public DbSet<Turno> Turno { get; set; } = default!;
     public DbSet<TurnoSlot> TurnoSlot { get; set; } = default!;
@@ -23,22 +22,27 @@ public class Context : DbContext
             // Configuramos las relaciones si hacen falta
             modelBuilder.Entity<Historia>()
                 .HasOne(h => h.paciente)
-                .WithOne(); 
-            
+                .WithOne();
+
+            // PK compuesta de ItemEstudio (documentoPaciente, fechaItem)
+            modelBuilder.Entity<ItemEstudio>().HasKey(ie => new { ie.documentoPaciente, ie.fecha });
             modelBuilder.Entity<ItemEstudio>()
                 .HasOne<Historia>() // Se hace de esta manera cuando la clase contiene solo el campo referente a la PK de la otra clase, y no un objeto.
                 .WithMany()
-                .HasForeignKey(i => i.documentoPaciente); 
-            
+                .HasForeignKey(i => i.documentoPaciente);
+
+            // Hay dos de Estudio porque uno es para indicar la clave compuesta, y otro para indicar el resto de los campos.
+            modelBuilder.Entity<Estudio>().HasKey(e => new { e.nombre, e.documentoPaciente, e.fecha });
             modelBuilder.Entity<Estudio>()
-                .HasOne<ItemEstudio>() 
-                .WithMany()
-                .HasForeignKey(e => e.documentoPaciente);
+                .HasOne<ItemEstudio>()
+                .WithMany(i => i.estudios)
+                .HasForeignKey(e => new { e.documentoPaciente, e.fecha })
+                .HasPrincipalKey(i => new { i.documentoPaciente, i.fecha });
             
             modelBuilder.Entity<ImagenEstudio>()
                 .HasOne<Estudio>() 
                 .WithMany()
-                .HasForeignKey(i => i.documentoPacienteEstudio);
+                .HasForeignKey(i => new {i.nombreEstudio, i.documentoPacienteEstudio, i.fecha});
             
             modelBuilder.Entity<Turno>()
                 .HasOne(t => t.paciente) // Indica que esta entidad (turno) está asociada a una sola entidad (paciente).

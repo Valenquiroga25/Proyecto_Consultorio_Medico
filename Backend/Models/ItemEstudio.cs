@@ -8,13 +8,15 @@ public class ItemEstudio
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int idItem { get; set; }
     
-    [Key]
+
     [Required]
     public string documentoPaciente { get; set; }
     
-    [Key]
+
     [Required]
     public DateTime fecha { get; set; }
+    
+    public List<Estudio> estudios { get; set; } = new();
 
     public ItemEstudio(){}
 
@@ -22,5 +24,12 @@ public class ItemEstudio
     {
         this.documentoPaciente = documentoPaciente;
         this.fecha = fecha;
+    }
+    
+    public ItemEstudio(string documentoPaciente, DateTime fecha, List<Estudio> estudios)
+    {
+        this.documentoPaciente = documentoPaciente;
+        this.fecha = fecha;
+        this.estudios = estudios;
     }
 }

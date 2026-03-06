@@ -1,3 +1,4 @@
+using Humanizer.DateTimeHumanizeStrategy;
 using ProyectoTurnos.Data;
 using ProyectoTurnos.Interfaces;
 using ProyectoTurnos.Models;
@@ -8,10 +9,12 @@ public class EstudioService : IEstudioService
 {
     
     private Context context;
+    private readonly ItemEstudioService itemEstudioService;
 
-    public EstudioService(Context context)
+    public EstudioService(Context context, ItemEstudioService itemEstudioService)
     {
         this.context = context;
+        this.itemEstudioService = itemEstudioService;
     }
 
     public bool GenerarEstudio(Estudio estudio)
@@ -69,17 +72,16 @@ public class EstudioService : IEstudioService
         }    
     }
 
-    public List<Estudio> ListarEstudiosByItem(ItemEstudio itemEstudio)
+    public List<Estudio> ListarEstudiosByItem(string documentoPaciente, DateTime fecha)
     {
         try
         {
-            return context.Estudio.Where(e => e.documentoPaciente == itemEstudio.documentoPaciente 
-                                                        && e.fecha == itemEstudio.fecha).ToList();
+            return context.Estudio.Where(e => e.documentoPaciente == documentoPaciente && e.fecha == fecha).ToList();
         }
         catch (Exception e)
         {
             Console.WriteLine("Ha ocurrido un error al listar los estudios: " + e.Message);
             throw;
-        }
+        }    
     }
 }

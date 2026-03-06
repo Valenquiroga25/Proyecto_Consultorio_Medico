@@ -6,7 +6,7 @@ using ProyectoTurnos.Services;
 namespace ProyectoTurnos.Controllers;
 
 [ApiController]
-[Route("api/[controller")]
+[Route("api/[controller]")]
 public class EstudioController : Controller
 {
     private readonly EstudioService estudioService;
@@ -35,12 +35,12 @@ public class EstudioController : Controller
         }
     }
     
-    [HttpGet("listar")]
-    public IActionResult ListarEstudiosByItem([FromBody] EstudioDTO estudioDto)
+    /*[HttpGet("listar/{documentoPaciente}/{fecha}")]
+    public IActionResult ListarEstudiosByItem(string  documentoPaciente, string fecha)
     {
         try
         {
-            ItemEstudio? itemEstudio = itemEstudioService.BuscarItemByHistoriaYFecha(estudioDto.documentoPaciente, estudioDto.fecha);
+            //ItemEstudio? itemEstudio = itemEstudioService.BuscarItemByHistoriaYFecha(documentoPaciente, DateTime.Parse(fecha));
             List<Estudio>? estudiosListados = estudioService.ListarEstudiosByItem(itemEstudio);
             List<EstudioDTO>? estudiosEnviar = new List<EstudioDTO>();
             
@@ -56,7 +56,7 @@ public class EstudioController : Controller
         {
             return Conflict("Ha ocurrido un error al listar los estudios del item perteneciente a la historia " + estudioDto.documentoPaciente + ": " + e.Message);
         }
-    }
+    }*/
 
     [HttpGet("listar/{documentoPaciente}/{nombre}/{fecha}")]
     public IActionResult BuscarEstudioByHistoriaNombreFecha(string documentoPaciente, string nombre, string fecha)
@@ -108,7 +108,7 @@ public class EstudioController : Controller
     {
         try
         {
-            return new Estudio(estudioDto.nombre,estudioDto.documentoPaciente,estudioDto.fecha);
+            return new Estudio(estudioDto.nombre,estudioDto.documentoPaciente,DateTime.Parse(estudioDto.fecha));
         }
         catch (Exception e)
         {
@@ -121,7 +121,7 @@ public class EstudioController : Controller
     {
         try
         {
-            return new EstudioDTO(estudio.nombre,estudio.documentoPaciente,estudio.fecha);
+            return new EstudioDTO(estudio.nombre,estudio.documentoPaciente,estudio.fecha.ToString());
         }
         catch (Exception e)
         {

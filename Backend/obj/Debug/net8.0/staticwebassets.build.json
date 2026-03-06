@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "K+5x9U9nTlvbogeRztg1yo+F6AbdwdDGooTJvLcHFgM=",
+  "Hash": "2U49Gb3OyP751QUQPRBSsW0g/dAbvndSvHrBPBxrj8k=",
   "Source": "ProyectoTurnos",
   "BasePath": "_content/ProyectoTurnos",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "ProyectoTurnos\\wwwroot",
       "Source": "ProyectoTurnos",
-      "ContentRoot": "C:\\Users\\54345\\OneDrive\\Escritorio\\Proyectos\\ProyectoTurnos\\ProyectoTurnos\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Valen\\OneDrive\\Documentos\\Proyectos\\Proyecto_Consultorio_Medico\\Backend\\wwwroot\\",
       "BasePath": "_content/ProyectoTurnos",
       "Pattern": "**"
     }

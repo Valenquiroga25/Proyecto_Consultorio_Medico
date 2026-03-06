@@ -6,7 +6,7 @@ using ProyectoTurnos.Services;
 namespace ProyectoTurnos.Controllers;
 
 [ApiController]
-[Route("api/[controller")]
+[Route("api/[controller]")]
 public class ItemEstudioController : Controller
 {
     private readonly ItemEstudioService itemEstudioService;
@@ -33,13 +33,12 @@ public class ItemEstudioController : Controller
         }
     }
     
-    [HttpGet("listar")]
-    public IActionResult ListarItemsByHistoria([FromBody] ItemEstudioDTO itemEstudioDto)
+    [HttpGet("listar/{documentoPaciente}")]
+    public IActionResult ListarItemsByHistoria(String documentoPaciente)
     {
         try
         {
-            ItemEstudio itemEstudio = ConvertToEntity(itemEstudioDto);
-            List<ItemEstudio>? itemsListados = itemEstudioService.ListarItemsByHistoria(itemEstudio);
+            List<ItemEstudio>? itemsListados = itemEstudioService.ListarItemsByHistoria(documentoPaciente);
             List<ItemEstudioDTO>? itemsEnviar = new List<ItemEstudioDTO>();
             
             foreach(ItemEstudio item in itemsListados)
@@ -52,7 +51,7 @@ public class ItemEstudioController : Controller
         }
         catch (Exception e)
         {
-            return Conflict("Ha ocurrido un error al listar los items de la historia clínica " + itemEstudioDto.documentoPaciente + ": " + e.Message);
+            return Conflict("Ha ocurrido un error al listar los items de la historia clínica " + documentoPaciente + ": " + e.Message);
         }
     }
 
@@ -106,7 +105,13 @@ public class ItemEstudioController : Controller
     {
         try
         {
-            return new ItemEstudio(itemEstudioDto.documentoPaciente,itemEstudioDto.fecha);
+            DateTime prueba = DateTime.Parse(itemEstudioDto.fecha);
+            Console.Out.WriteLine(prueba);
+            List<Estudio> listaEstudios = new List<Estudio>();
+            
+            foreach(EstudioDTO estuDto in itemEstudioDto.estudios)
+                listaEstudios.Add(new Estudio(estuDto.nombre,estuDto.documentoPaciente,DateTime.Parse(estuDto.fecha)));    
+            return new ItemEstudio(itemEstudioDto.documentoPaciente,DateTime.Parse(itemEstudioDto.fecha), listaEstudios);
         }
         catch (Exception e)
         {
@@ -119,7 +124,18 @@ public class ItemEstudioController : Controller
     {
         try
         {
-            return new ItemEstudioDTO(itemEstudio.fecha, itemEstudio.documentoPaciente);
+            List<EstudioDTO>? estudiosDTO = new List<EstudioDTO>();
+            if (itemEstudio.estudios != null)
+            {
+                foreach (Estudio estudio in itemEstudio.estudios)
+                {
+                    EstudioDTO estu = new EstudioDTO(estudio.nombre, estudio.documentoPaciente, estudio.fecha.ToString()); 
+                    estudiosDTO.Add(estu);
+                }
+                return new ItemEstudioDTO(itemEstudio.fecha.ToString(), itemEstudio.documentoPaciente, estudiosDTO);
+            }
+            
+            return new ItemEstudioDTO(itemEstudio.fecha.ToString(), itemEstudio.documentoPaciente);
         }
         catch (Exception e)
         {
